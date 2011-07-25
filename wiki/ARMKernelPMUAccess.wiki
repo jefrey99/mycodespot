@@ -49,4 +49,4 @@ http://chart.apis.google.com/chart?chs=200x125&chd=t:10,20,30,40|83.18,18.73,12.
 
 <wiki:video url="http://www.youtube.com/watch?v=3LkNlTNHZzE"/>
 
-<wiki:video url="http://www.youtube.com/watch?v=3LkNlTNHZzE"/>
+<wiki:gadget url="http://example.com/gadget.xml" height="200" border="0" /> 
