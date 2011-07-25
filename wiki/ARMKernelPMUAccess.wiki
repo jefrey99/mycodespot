@@ -3,7 +3,7 @@
 = How to build an ARM/linux kernel to access the PMU registers =
 
 There is some plumbing to do, in that you need to wire up the PMU interrupts in the bsp part of the kernel:
-e.g. arch/arm/mach-vexpress/ct-ca9x4.c
+|| e.g. arch/arm/mach-vexpress/ct-ca9x4.c ||
 
 {{{
 static struct resource pmu_resources[] = {
@@ -39,4 +39,3 @@ static struct platform_device pmu_device = {
 }}}
 
 = More Details To Come=
-
