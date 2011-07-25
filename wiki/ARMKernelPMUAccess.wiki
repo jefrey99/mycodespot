@@ -4,7 +4,9 @@
 
 There is some plumbing to do, in that you need to wire up the PMU interrupts in the bsp part of the kernel:
 
-{{{arch/arm/mach-vexpress/ct-ca9x4.c}}}
+{{{
+arch/arm/mach-vexpress/ct-ca9x4.c
+}}}
 
 {{{
 static struct resource pmu_resources[] = {
