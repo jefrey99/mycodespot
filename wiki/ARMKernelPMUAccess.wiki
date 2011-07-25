@@ -47,6 +47,6 @@ static struct platform_device pmu_device = {
 http://chart.apis.google.com/chart?chs=200x125&chd=t:10,20,30,40|83.18,18.73,12.04&cht=bvg&nonsense=jeff.png
 
 
-<wiki:video url="http://www.youtube.com/watch?v=3LkNlTNHZzE"/>
 
-<wiki:gadget url="http://example.com/gadget.xml" height="200" border="0" /> 
+http://www.arm.com/images/site/arm_logo.gif
+http://www.ece.nmsu.edu/~jeastlac/images/penguin_small.jpg
