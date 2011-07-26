@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary A few different examples of using oprofile scripts
 
 = Some oprofile scripts =
 
