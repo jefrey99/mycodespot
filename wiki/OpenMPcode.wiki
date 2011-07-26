@@ -1,4 +1,4 @@
-= My Code Snippets for openMP =
+= My OpenMP Code Snippets =
 
 == Multi threaded Hello World with OpenMP ==
 
