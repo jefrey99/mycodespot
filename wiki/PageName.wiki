@@ -536,3 +536,8 @@ void pmu_stop(void){
   printf("Overflow flag: = %d, Cycle Count: = %d \n\n", overflow,cycle_count);
 }
 }}}
+
+===Compile Command ===
+{{{
+$ gcc -O3 -mtune=cortex-a9 -mfpu=neon -o  pmu_matrix pmu_matrix_test.c v7_pmu.S -lm
+}}}
