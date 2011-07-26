@@ -21,7 +21,7 @@ int nthreads, tid;
 }
 
 }}}
-== Multi Treaded Computation of the DOT Product ==
+== Multi Treaded Computation of the dot product ==
 {{{
 #include <omp.h>
 #include <stdio.h>
