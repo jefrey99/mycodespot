@@ -1,3 +1,4 @@
+#summary Several parallel code examples using OpenMP.
 = My OpenMP Code Snippets =
 
 === In case you forgot the GCC compile commands ==
