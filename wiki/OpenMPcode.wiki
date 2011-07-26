@@ -1,5 +1,10 @@
 = My OpenMP Code Snippets =
 
+=== In case you forgot the GCC compile commands ==
+
+{{{
+$ gcc -fopenmp -o executable ompfile.c
+}}}
 == Multi threaded Hello World with OpenMP ==
 
 {{{
