@@ -2,8 +2,29 @@
 
 = Code Snippets for openMP =
 
-Add your content here.
+== Multi threaded Hello World with OpenMP ==
 
+{{{
+#include <stdio.h>
+#include <omp.h>
+main () 
+{
+int nthreads, tid;
+
+#pragma omp parallel private(nthreads, tid)
+{
+ tid = omp_get_thread_num();
+if (tid == 0) {
+nthreads = omp_get_num_threads();
+printf("Number of cores = %d\n", nthreads);
+}
+printf("Hello World from core = %d\n", tid);
+}
+}
+
+}}}
+
+== Multi Theaded Computation of Simpsons Rule using OpenMP ==
 {{{
 #include<stdio.h>
 #include <omp.h>
