@@ -1,7 +1,7 @@
 #summary Shows how to embed direct hooks to the ARM PMU in your code.
 
 = Accessing the ARM Performance Monitoring Unit (PMU) =
-This code examples shows how to access and setup the performance monitoring unit and has been modified to be GCC friendly.
+This code examples shows how to access and setup the performance monitoring unit. This v7_pmu.S and v7_pmu.h was originally downloaded from arm.com but modified by me to be GCC friendly. 
 
 
 ===v7_pmu.h===
