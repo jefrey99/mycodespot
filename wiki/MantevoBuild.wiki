@@ -13,14 +13,24 @@ Install mpich2
 
 sudo apt-get install mpich2
 sudo apt-get install build-essential
-
+chmod 600 .mpd.conf
 
 miniFE:
 
 1) change makefile to add optimization flags for the cortex-a9
 
-CFLAGS = -O3 -mtune=cortex-a9 -mfpu=vfpv3
-CXXFLAGS = -O3 -mtune=cortex-a9 -mfpu=vfpv3
+ARM Cortex-A9
+CFLAGS = -O3 -mtune=cortex-a9 -mfpu=neon
+CXXFLAGS = -O3 -mtune=cortex-a9 -mfpu=neon
+
+ARM Cortex-A8
+CFLAGS = -O3 -mtune=cortex-a8 -mfpu=neon
+CXXFLAGS = -O3 -mtune=cortex-a8 -mfpu=neon
+
+On Intel Atom
+
+CFLAGS = -O3 -mtune=atom
+CXXFLAGS = -O3 -mtune=atom
 
 On Intel Core i3 (Nehalem)
 
@@ -35,7 +45,7 @@ beam:
 
 1) run "configure" and add the compiler flags for ARM cortex-A9
 
-./configure CXXFLAGS= "-O3 -mtune=cortex-a9 -mfpu=vfpv3" CFLAGS="-O3 -mtune=cortex-a9 -mfpu=vfpv3"
+./configure CXXFLAGS= "-O3 -mtune=cortex-a9 -mfpu=neon" CFLAGS="-O3 -mtune=cortex-a9 -mfpu=neon"
 
 
 2) type "make"
@@ -45,7 +55,11 @@ HPCCG:
 
 1) change "Makefile"
 
-CPP_OPT_FLAGS = -O3 -funroll-all-loops -malign-double -mtune=cortex-a9 -mfpu=vfpv3
+CPP_OPT_FLAGS = -O3 -funroll-all-loops -malign-double -mtune=cortex-a9 -mfpu=neon
+
+on Cortex-A8
+CPP_OPT_FLAGS = -O3 -funroll-all-loops -malign-double -mtune=cortex-a8 -mfpu=neon
+
 
 on Core i3:
 
@@ -58,8 +72,10 @@ CPP_OPT_FLAGS = -O3 -funroll-all-loops -malign-double -mtune=core2
 
 pHPCCG:
 1) change "Makefile" to:
-CPP_OPT_FLAGS = -O3 -funroll-all-loops -mtune=cortex-a9 -mfpu=vfpv3
+CPP_OPT_FLAGS = -O3 -funroll-all-loops -mtune=cortex-a9 -mfpu=neon
 
+Cortex-A8
+CPP_OPT_FLAGS = -O3 -funroll-all-loops -mtune=cortex-a8 -mfpu=neon
 corei3:
 
 CPP_OPT_FLAGS = -O3 -funroll-all-loops -mtune=core2
@@ -74,7 +90,9 @@ miniMD
 2) change "Makefile.mpicxx" and add:
 
 ARM: (CCFLAGS?)
-CFLAGS = -O3 -funroll-all-loops -mtune=cortex-a9 -mfpu=vfpv3
+CFLAGS = -O3 -funroll-all-loops -mtune=cortex-a9 -mfpu=neon
+
+CCFLAGS =	-O3 -funroll-all-loops -mtune=cortex-a8 -mfpu=neon -DMPICH_IGNORE_CXX_SEEK
 
 corei3:
 CCFLAGS =	-O3 -funroll-all-loops -mtune=core2 -DMPICH_IGNORE_CXX_SEEK
@@ -92,7 +110,9 @@ miniMD (single precison)
 2) change "Makefile.mpicxx" and add:
 
 ARM: (CCFLAGS?)
-CFLAGS = -O3 -funroll-all-loops -mtune=cortex-a9 -mfpu=vfpv3
+CCFLAGS =	-O3 -funroll-all-loops -mtune=cortex-a9 -mfpu=neon -DMPICH_IGNORE_CXX_SEEK
+
+CCFLAGS =	-O3 -funroll-all-loops -mtune=cortex-a8 -mfpu=neon -DMPICH_IGNORE_CXX_SEEK
 
 corei3:
 CCFLAGS =	-O3 -funroll-all-loops -mtune=core2 -DMPICH_IGNORE_CXX_SEEK
