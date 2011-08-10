@@ -1,4 +1,4 @@
-# How I built Mantevo benchmark for multiple platforms
+#summary How I built Mantevo benchmark for multiple platforms
 
 = How I built Sandia's Mantevo benchmark for multiple platforms =
 
