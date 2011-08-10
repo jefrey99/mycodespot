@@ -1,0 +1,28 @@
+#How to setup Oprofile for iMX53.
+
+= How to setup Oprofile for iMX53 =
+
+# Setting up the kernel with LTIB
+{{{
+$ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a kernel rebuild
+}}}
+# Select the kernel modules when GUI based editor appears
+{{{
+// General Setup ---> Select [*] Profiling Support
+// <*> OProfile system profiling <Exit>
+
+//<Exit> and Save will start the build
+}}}
+# find the new kernel 
+{{{
+New kernel image (uImage) is put in ../ltib/rootfs/boot/ directory
+}}}
+
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
