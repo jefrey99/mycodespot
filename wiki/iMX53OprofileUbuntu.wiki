@@ -18,7 +18,7 @@ $ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a
 }}}
 *Note: do not select performance counters and monitoring support for time mode. i.e.:
 {{{
-// General Setup ---> Kernel Performance Events And Counters  ---> [*] Kernel performance events and counters
+// General Setup ---> Kernel Performance Events And Counters  ---> [ ] Kernel performance events and counters
 }}}
  # Find the new kernel 
 {{{
