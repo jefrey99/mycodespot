@@ -1,4 +1,4 @@
-# How to setup Oprofile for iMX53.
+#summary How to setup Oprofile for iMX53.
 
 = How to setup Oprofile for iMX53 =
 
