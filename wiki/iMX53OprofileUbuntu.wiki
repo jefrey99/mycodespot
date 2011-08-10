@@ -47,18 +47,18 @@ $ sudo apt-get install oprofile
 
  # Run oprofile
 {{{
-sudo opcontrol --init
-sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
-sudo opcontrol --start
-sudo opcontrol --status
+$ sudo opcontrol --init
+$ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
+$ sudo opcontrol --start
+$ sudo opcontrol --status
 // do stuff 
-sudo opcontrol --dump
-sudo opcontrol --stop
+$ sudo opcontrol --dump
+$ sudo opcontrol --stop
 
 }}}
  # Run opreport 
 {{{
-sudo opreport --symbols
+$ sudo opreport --symbols
 }}}
 
 ===Using Event Mode and Counters===
