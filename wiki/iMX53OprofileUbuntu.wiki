@@ -1,6 +1,6 @@
 #summary How to setup Oprofile for iMX53.
 
-= How to setup Oprofile for iMX53 =
+= How to setup Oprofile for iMX53 (ARM Cortex-A8) =
 
 
 ===In timer mode ===
@@ -51,7 +51,6 @@ sudo opcontrol --init
 sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
 sudo opcontrol --start
 sudo opcontrol --status
-
 // do stuff 
 sudo opcontrol --dump
 sudo opcontrol --stop
@@ -62,9 +61,4 @@ sudo opcontrol --stop
 sudo opreport --symbols
 }}}
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+===Using Event Mode and Counters===
