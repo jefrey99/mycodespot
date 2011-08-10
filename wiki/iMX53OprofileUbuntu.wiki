@@ -16,6 +16,7 @@ $ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a
 // <Exit>
 // <Exit> and Save will start the build
 }}}
+*Note: do not select Performance counters and monitoring support for time mode
  # Find the new kernel 
 {{{
 // The new kernel image (uImage) is put in ../ltib/rootfs/boot/
