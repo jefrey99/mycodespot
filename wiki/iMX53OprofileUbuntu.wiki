@@ -2,7 +2,7 @@
 
 = How to setup Oprofile for iMX53 =
 
-# Setting up the kernel with LTIB
+* Setting up the kernel with LTIB
 {{{
 $ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a kernel rebuild
 }}}
