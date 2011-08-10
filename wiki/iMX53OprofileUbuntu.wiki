@@ -66,3 +66,28 @@ $ sudo opreport --symbols
 }}}
 
 ===Using Event Mode and Counters===
+
+ # Run oprofile
+{{{
+$ sudo opcontrol --init
+$ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
+$ sudo opcontrol --event=DCACHE_ACCESS:1000:0:1:1
+$ sudo opcontrol --start
+$ sudo opcontrol --status
+// do stuff 
+$ sudo opcontrol --dump
+$ sudo opcontrol --stop
+
+}}}
+ # Run opreport 
+{{{
+$ sudo opreport --symbols
+}}}
+
+{{{
+lucid@lucid-desktop:~$ sudo opreport
+opreport error: No sample file found: try running opcontrol --dump
+or specify a session containing sample files
+
+
+}}}
