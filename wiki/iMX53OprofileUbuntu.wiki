@@ -13,7 +13,7 @@ $ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a
 // <Exit>
 // <Exit> and Save will start the build
 }}}
- # find the new kernel 
+ # Find the new kernel 
 {{{
 New kernel image (uImage) is put in ../ltib/rootfs/boot/ directory
 }}}
