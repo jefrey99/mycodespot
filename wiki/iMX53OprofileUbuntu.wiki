@@ -15,7 +15,7 @@ $ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a
 }}}
  # Find the new kernel 
 {{{
-New kernel image (uImage) is put in ../ltib/rootfs/boot/ directory
+// New kernel image (uImage) is put in ../ltib/rootfs/boot/ directory
 }}}
 
 
