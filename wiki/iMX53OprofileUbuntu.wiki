@@ -4,7 +4,7 @@
 
 
 ===In timer mode ===
- #* Setting up the kernel with LTIB
+ # Setting up the kernel with LTIB
 {{{
 $ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a kernel rebuild
 }}}
@@ -17,6 +17,7 @@ $ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a
 // <Exit> and Save will start the build
 }}}
 *Note: do not select Performance counters and monitoring support for time mode
+
  # Find the new kernel 
 {{{
 // The new kernel image (uImage) is put in ../ltib/rootfs/boot/
