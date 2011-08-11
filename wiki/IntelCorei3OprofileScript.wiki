@@ -4,19 +4,63 @@
 
 {{{
 #!/bin/bash
-SleepSeconds=15
+SleepSeconds=5
+
+./seti_boinc --standalone &
+date
 sudo opcontrol --init
 sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=CPU_CLK_UNHALTED:6000:0x41:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+sudo opreport << Nehalem_CPU_CLK_UNHALTED.txt
+echo " "
+
+# Running next event 
+date
+sudo opcontrol --reset
+sudo opcontrol --event=INST_RETIRED:6000:0x41:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+sudo opreport << Nehalem_INST_RETIRED.txt
+
+
+# Running next event 
+date
 sudo opcontrol --reset
 sudo opcontrol --event=LLC_MISSES:6000:0x41:0:1
 sudo opcontrol --start
 sudo opcontrol --status
-date
-./seti_boinc --standalone
 sleep $SleepSeconds
 sudo opcontrol --dump
-sudo opcontrol --stop
-sudo opreport
+sudo opreport << Nehalem_LLC_MISSES.txt
 
+
+# Running next event 
+date
+sudo opcontrol --reset
+sudo opcontrol --event=BR_INST_RETIRED:6000:0x41:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+sudo opreport << Nehalem_BR_INST_RETIRED.txt
+
+
+
+# Running next event 
+date
+sudo opcontrol --reset
+sudo opcontrol --event=BR_MISS_PRED_RETIRED:6000:0x41:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+sudo opreport << Nehalem_BR_MISS_PRED_RETIRED.txt
 
 }}}
