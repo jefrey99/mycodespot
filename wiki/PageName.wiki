@@ -1,0 +1,175 @@
+#summary Profiling SETI@Home with oprofile on ARM Cortex-A8.
+
+= Profiling SETI@Home with oprofile on ARM Cortex-A8 =
+
+Add your content here.
+
+
+=== Details ===
+
+{{{
+SleepSeconds=100
+./seti_boinc --standalone &
+date
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+sudo opreport 
+
+}}}
+= Timer Mode Data =
+Using the RTC Timer
+
+=== Dumping the data ===
+{{{
+lucid@lucid-desktop:~/Documents/seti_boinc/client$ ./go_seti.sh 
+Fri Aug 12 07:38:00 CST 2011
+[sudo] password for lucid: 
+Signalling daemon... done
+Profiler running.
+Daemon running: pid 5802
+Separate options: none
+vmlinux file: none
+Image filter: none
+Call-graph depth: 0
+Overflow stats not available
+CPU: CPU with timer interrupt, speed 0 MHz (estimated)
+Profiling through timer interrupt
+          TIMER:0|
+  samples|      %|
+------------------
+     4601 44.7873 seti_boinc
+     1625 15.8182 vmlinux-2.6.35.3-850-gbc67621-g91e9da8
+     1255 12.2165 libpixman-1.so.0.16.4
+      819  7.9724 libc-2.11.1.so
+      639  6.2202 Xorg
+      227  2.2097 libcairo.so.2.10800.10
+      163  1.5867 libz160.so
+      134  1.3044 libglib-2.0.so.0.2400.1
+      134  1.3044 libgdk-x11-2.0.so.0.2000.1
+      121  1.1778 libexa.so
+      109  1.0610 imx_drv.so
+       89  0.8663 libgobject-2.0.so.0.2400.1
+       61  0.5938 libpthread-2.11.1.so
+       56  0.5451 libX11.so.6.3.0
+       43  0.4186 libgsl-fsl.so.1
+       29  0.2823 libfb.so
+       26  0.2531 python2.6
+       22  0.2142 floaters
+       19  0.1850 libxcb.so.1.1.0
+       16  0.1557 libgtk-x11-2.0.so.0.2000.1
+       15  0.1460 libXrender.so.1.3.0
+       13  0.1265 bash
+       13  0.1265 libm-2.11.1.so
+       12  0.1168 ld-2.11.1.so
+        8  0.0779 evdev_drv.so
+        6  0.0584 libgthread-2.0.so.0.2400.1
+        4  0.0389 librt-2.11.1.so
+        3  0.0292 libudev.so.0.6.1
+        3  0.0292 libpulsecommon-0.9.21.so
+        2  0.0195 libavahi-common.so.3.5.1
+        1  0.0097 libdbus-1.so.3.4.0
+        1  0.0097 libecore-ver-svn-05.so.0.9.9
+        1  0.0097 libgio-2.0.so.0.2400.1
+        1  0.0097 libpyglib-2.0-python2.6.so.0.0.0
+        1  0.0097 _glib.so
+        1  0.0097 rsyslogd
+lucid@lucid-desktop:~/Documents/seti_boinc/client$
+}}}
+=== Isolating SETI@home ===
+{{{
+lucid@lucid-desktop:~/Documents/seti_boinc/client$ opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc
+Overflow stats not available
+CPU: CPU with timer interrupt, speed 0 MHz (estimated)
+Profiling through timer interrupt
+samples  %        symbol name
+3025     35.4589  top_sum2(float**, PoTPlan*)
+1850     21.6856  top_sum3(float**, PoTPlan*)
+1553     18.2042  top_sum4(float**, PoTPlan*)
+1378     16.1529  top_sum5(float**, PoTPlan*)
+90        1.0550  strchr
+53        0.6213  __ieee754_log
+51        0.5978  Laligned
+45        0.5275  n1_64
+43        0.5040  sw_sum2_t31(float**, PoTPlan*)
+40        0.4689  t1_32
+34        0.3985  find_pulse(float const*, int, float, int, int)
+26        0.3048  t1_16
+22        0.2579  t_funct(int, int, int)
+22        0.2579  v_BaseLineSmooth(float (*) [2], int, int, int)
+20        0.2344  n1_32
+17        0.1993  q1_4
+17        0.1993  t1_8
+16        0.1876  q1_8
+16        0.1876  v_GetPowerSpectrum(float (*) [2], float*, int)
+13        0.1524  t1_4
+12        0.1407  __ieee754_pow
+12        0.1407  lcgf(double, double)
+11        0.1289  n1_8
+10        0.1172  FindSpikes(float*, int, int, SETI_WU_INFO&)
+10        0.1172  time_to_ra_dec(double, double*, double*)
+8         0.0938  GenChirpFftPairs(ChirpFftPair_t**, double*)
+8         0.0938  GetFixedPoT(float*, int, int, float*, int, int)
+8         0.0938  ReportPulseEvent(float, float, float, int, int, float, float, float*, int, int)
+8         0.0938  malloc
+7         0.0821  _int_malloc
+7         0.0821  analyze_pot(float*, int, ChirpFftPair_t&)
+7         0.0821  logl
+6         0.0703  __divsi3
+5         0.0586  __exp1
+5         0.0586  calc_detection_freq(double, double, double)
+5         0.0586  malloc_consolidate
+5         0.0586  memcpy
+4         0.0469  analysis_config::analysis_config()
+3         0.0352  bits_to_floats(unsigned char*, float (*) [2], int)
+3         0.0352  free
+3         0.0352  memset
+3         0.0352  workunit_grp::workunit_grp()
+2         0.0234  GetPulsePoTLen(long, int*, int*)
+2         0.0234  SpikeProgressUnits(int)
+2         0.0234  fraction_done(double, double)
+2         0.0234  operator new(unsigned int)
+2         0.0234  powl
+2         0.0234  seti_analyze(ANALYSIS_STATE&)
+2         0.0234  splitter_config::splitter_config()
+2         0.0234  std::vector<unsigned char, std::allocator<unsigned char> >::_M_fill_insert(__gnu_cxx::__normal_iterator<unsigned char*, std::vector<unsigned char, std::allocator<unsigned char> > >, unsigned int, unsigned char const&)
+2         0.0234  tape::tape()
+1         0.0117  GaussianProgressUnits()
+1         0.0117  GetProgressUnitSize(int, int)
+1         0.0117  T.9826
+1         0.0117  __aeabi_d2ulz
+1         0.0117  __ieee754_fmod
+1         0.0117  __ieee754_log10
+1         0.0117  __libc_enable_asynccancel
+1         0.0117  _int_free
+1         0.0117  apply_dit
+1         0.0117  boinc_fraction_done
+1         0.0117  cexpl_sqrtn_table
+1         0.0117  cnvt_bin_hz(int, int)
+1         0.0117  dtime()
+1         0.0117  fftwf_kernel_malloc
+1         0.0117  fftwf_md5int
+1         0.0117  fftwf_md5putb
+1         0.0117  fftwf_md5putc
+1         0.0117  hgrow
+1         0.0117  isnanl
+1         0.0117  log10l
+1         0.0117  mkplan
+1         0.0117  mkplan
+1         0.0117  mkplan
+1         0.0117  msort_with_tmp
+1         0.0117  std::_Rb_tree<long long, std::pair<long long const, ChirpFftPair_t>, std::_Select1st<std::pair<long long const, ChirpFftPair_t> >, std::less<long long>, std::allocator<std::pair<long long const, ChirpFftPair_t> > >::_M_erase(std::_Rb_tree_node<std::pair<long long const, ChirpFftPair_t> >*)
+1         0.0117  std::_Rb_tree<long long, std::pair<long long const, ChirpFftPair_t>, std::_Select1st<std::pair<long long const, ChirpFftPair_t> >, std::less<long long>, std::allocator<std::pair<long long const, ChirpFftPair_t> > >::_M_insert_unique_(std::_Rb_tree_const_iterator<std::pair<long long const, ChirpFftPair_t> >, std::pair<long long const, ChirpFftPair_t> const&)
+1         0.0117  std::string::_M_mutate(unsigned int, unsigned int, unsigned int)
+1         0.0117  std::vector<unsigned char, std::allocator<unsigned char> > x_setiathome_decode<unsigned char>(char const*, unsigned int)
+1         0.0117  subband_description_t::subband_description_t()
+1         0.0117  vscan
+1         0.0117  worker_signal_handler(int)
+1         0.0117  workunit_header::workunit_header()
+lucid@lucid-desktop:~/Documents/seti_boinc/client$
+
+}}}
