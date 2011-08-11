@@ -1,0 +1,16 @@
+#summary Oprofile usage script to isolate a program.
+
+= Profiling Stuff =
+
+=== Details ===
+{{{
+#!/bin/bash
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/boot/vmlinux-2.6.35.3-850-gbc67621-g91e9da8
+sudo opcontrol --start
+sudo opcontrol --status
+firefox www.yahoo.com
+sudo opcontrol --dump
+sudo opcontrol --stop
+opreport -l /usr/bin/firefox
+}}}
