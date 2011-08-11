@@ -1,8 +1,9 @@
 #summary Oprofile usage script to isolate a program.
 
-= Profiling Stuff =
+= Profiling Firefox Load =
 
 === Details ===
+{{{opscript.sh}}}
 {{{
 #!/bin/bash
 sudo opcontrol --init
