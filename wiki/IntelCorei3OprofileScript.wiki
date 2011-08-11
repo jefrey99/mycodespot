@@ -1,0 +1,22 @@
+#summary The script used to profile SETI@Home
+
+= This script was used to profile SETI at home on x86 (Nehalem) =
+
+{{{
+#!/bin/bash
+SleepSeconds=15
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=LLC_MISSES:6000:0x41:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+date
+./seti_boinc --standalone
+sleep $SleepSeconds
+sudo opcontrol --dump
+sudo opcontrol --stop
+sudo opreport
+
+
+}}}
