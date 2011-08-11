@@ -66,6 +66,16 @@ $ sudo opreport --symbols
 }}}
 
 ===Using Event Mode and Counters===
+ # Select the kernel modules when GUI based editor appears
+{{{
+// General Setup ---> Kernel Performance Events And Counters  ---> [ ] Kernel performance events and counters
+// General Setup ---> Kernel Performance Events And Counters  ---> [*] Debug: use vmalloc to back perf mmap() buffers
+// General Setup ---> Select [*] Profiling Support
+// General Setup ---> Select <*> OProfile system profiling 
+// Kernel Hacking ---> Select [*] Kernel Debugging
+// <Exit>
+// <Exit> and Save will start the build
+}}}
 
  # Run oprofile
 {{{
