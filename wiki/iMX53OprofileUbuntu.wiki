@@ -18,7 +18,7 @@ Kernel Hacking ---> Select [*] Kernel Debugging
 }}}
 *Note: do not select performance counters and monitoring support for time mode. i.e.:
 {{{
-// General Setup ---> Kernel Performance Events And Counters  ---> [ ] Kernel performance events and counters
+General Setup ---> Kernel Performance Events And Counters  ---> [ ] Kernel performance events and counters
 }}}
  # Find the new kernel 
 {{{
@@ -42,13 +42,10 @@ $ cd /boot
 $ sudo cp vmlinux vmlinux-'uname -r'
 $ cd ~
 }}}
-
  # Install oprofile (on ubuntu)
-
 {{{
 $ sudo apt-get install oprofile
 }}}
-
  # Run oprofile
 {{{
 $ sudo opcontrol --init
@@ -58,13 +55,11 @@ $ sudo opcontrol --status
 // do stuff 
 $ sudo opcontrol --dump
 $ sudo opcontrol --stop
-
 }}}
  # Run opreport 
 {{{
 $ sudo opreport --symbols
 }}}
-
 ===Using Event Mode and Counters===
  # Select the kernel modules when GUI based editor appears
 {{{
@@ -76,7 +71,6 @@ Kernel Hacking ---> Select [*] Kernel Debugging
 <Exit>
 <Exit> and Save will start the build
 }}}
-
  # Run oprofile
 {{{
 $ sudo opcontrol --init
@@ -87,7 +81,6 @@ $ sudo opcontrol --status
 // do stuff 
 $ sudo opcontrol --dump
 $ sudo opcontrol --stop
-
 }}}
  # Run opreport 
 {{{
@@ -98,6 +91,4 @@ $ sudo opreport --symbols
 lucid@lucid-desktop:~$ sudo opreport
 opreport error: No sample file found: try running opcontrol --dump
 or specify a session containing sample files
-
-
 }}}
