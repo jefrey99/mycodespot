@@ -10,11 +10,11 @@ $ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a
 }}}
  # Select the kernel modules when GUI based editor appears
 {{{
-// General Setup ---> Select [*] Profiling Support
-// General Setup ---> Select <*> OProfile system profiling 
-// Kernel Hacking ---> Select [*] Kernel Debugging
-// <Exit>
-// <Exit> and Save will start the build
+General Setup ---> Select [*] Profiling Support
+General Setup ---> Select <*> OProfile system profiling 
+Kernel Hacking ---> Select [*] Kernel Debugging
+<Exit>
+<Exit> and Save will start the build
 }}}
 *Note: do not select performance counters and monitoring support for time mode. i.e.:
 {{{
