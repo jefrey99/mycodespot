@@ -4,7 +4,7 @@
 
 {{{
 #!/bin/bash
-SleepSeconds=5
+SleepSeconds=500 # ~ 8 minutes
 
 ./seti_boinc --standalone &
 date
