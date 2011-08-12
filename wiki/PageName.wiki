@@ -176,7 +176,112 @@ lucid@lucid-desktop:~/Documents/seti_boinc/client$
 
 == On the Versatile Board ==
 
+==== DCACHE Access ====
 {{{
+user41@ca9-natty:~/seti_boinc/client$ opreport
+Overflow stats not available
+CPU: ARM Cortex-A9, speed 0 MHz (estimated)
+Counted DCACHE_ACCESS events (Data R/W from cache) with a unit mask of 0x00 (No unit mask) count 500
+DCACHE_ACCESS:500|
+  samples|      %|
+------------------
+ 17961204 50.2768 no-vmlinux
+ 11790083 33.0027 seti_boinc
+  5634212 15.7712 oprofiled
+        DCACHE_ACCESS:500|
+          samples|      %|
+        ------------------
+          5634208 99.9999 oprofiled
+                4 7.1e-05 [vectors] (tgid:32380 range:0xffff0000-0xffff1000)
+   126138  0.3531 libc-2.13.so
+    81590  0.2284 bash
+    37943  0.1062 ld-2.13.so
+    18019  0.0504 thttpd
+    10919  0.0306 libglib-2.0.so.0.2800.6
+    10476  0.0293 libpthread-2.13.so
+    10023  0.0281 ntpd
+     6288  0.0176 Xorg
+     4315  0.0121 libgobject-2.0.so.0.2800.6
+     3459  0.0097 libpixman-1.so.0.20.2
+     3402  0.0095 libcairo.so.2.11000.2
+     2811  0.0079 locale-archive
+     2767  0.0077 sshd
+     2521  0.0071 libcrypto.so.0.9.8
+     1904  0.0053 libgtk-x11-2.0.so.0.2400.4
+     1594  0.0045 libORBit-2.so.0.1.0
+     1565  0.0044 rsyslogd
+     1423  0.0040 libxcb.so.1.1.0
+     1235  0.0035 libgdk-x11-2.0.so.0.2400.4
+     1207  0.0034 libdbus-1.so.3.5.4 (deleted)
+     1197  0.0034 librt-2.13.so
+     1075  0.0030 libX11.so.6.3.0
+      747  0.0021 mawk
+      732  0.0020 sudo
+        DCACHE_ACCESS:500|
+          samples|      %|
+        ------------------
+              698 95.3552 sudo
+               18  2.4590 [heap] (tgid:32384 range:0x2d000-0x53000)
+               16  2.1858 [heap] (tgid:32535 range:0x2d000-0x53000)
+      691  0.0019 libgio-2.0.so.0.2800.6
+      567  0.0016 libm-2.13.so
+      512  0.0014 libpango-1.0.so.0.2800.4
+      430  0.0012 ophelp
+      418  0.0012 libgthread-2.0.so.0.2800.6
+      396  0.0011 grep
+      385  0.0011 tr
+        DCACHE_ACCESS:500|
+          samples|      %|
+        ------------------
+              369 95.8442 tr
+                7  1.8182 [heap] (tgid:32627 range:0x18000-0x3b000)
+                5  1.2987 [heap] (tgid:32419 range:0x18000-0x3b000)
+                4  1.0390 anon (tgid:32419 range:0x402bf000-0x402c2000)
+      281 7.9e-04 libfb.so
+      169 4.7e-04 dash
+      165 4.6e-04 gconfd-2
+      151 4.2e-04 libgconf-2.so.4.1.5
+      129 3.6e-04 libnss_compat-2.13.so
+      114 3.2e-04 libncurses.so.5.7
+      111 3.1e-04 libdl-2.13.so
+      100 2.8e-04 rtkit-daemon
+       96 2.7e-04 libXext.so.6.4.0
+       93 2.6e-04 libresolv-2.13.so
+       85 2.4e-04 libpangoft2-1.0.so.0.2800.4
+       85 2.4e-04 libdbus-glib-1.so.2.1.0
+       80 2.2e-04 libgvfscommon.so.0.0.0
+       76 2.1e-04 libgcc_s.so.1
+       70 2.0e-04 libpopt.so.0.0.0
+       65 1.8e-04 libshadow.so
+       56 1.6e-04 cron
+       53 1.5e-04 libextmod.so
+       52 1.5e-04 libXrender.so.1.3.0
+       45 1.3e-04 imuxsock.so
+       41 1.1e-04 gdm-simple-greeter
+       34 9.5e-05 gnome-power-manager
+       34 9.5e-05 libpangocairo-1.0.so.0.2800.4
+       33 9.2e-05 metacity
+       26 7.3e-05 pango-basic-fc.so
+       17 4.8e-05 libudev.so.0.11.1
+       15 4.2e-05 libselinux.so.1
+       13 3.6e-05 rm
+       13 3.6e-05 libpam.so.0.82.3
+       12 3.4e-05 sleep
+        DCACHE_ACCESS:500|
+          samples|      %|
+        ------------------
+                9 75.0000 [heap] (tgid:32534 range:0x15000-0x36000)
+                3 25.0000 sleep
+       10 2.8e-05 expr
+        7 2.0e-05 libmurrine.so
+        6 1.7e-05 libnss_dns-2.13.so
+        4 1.1e-05 libnsl-2.13.so
+        4 1.1e-05 libutil-2.13.so
+        4 1.1e-05 libdbe.so
+        3 8.4e-06 libnss_nis-2.13.so
+        1 2.8e-06 cat
+        1 2.8e-06 seq
+user41@ca9-natty:~/seti_boinc/client$ 
 
 
 
