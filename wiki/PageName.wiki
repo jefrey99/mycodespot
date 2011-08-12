@@ -173,3 +173,11 @@ samples  %        symbol name
 lucid@lucid-desktop:~/Documents/seti_boinc/client$
 
 }}}
+
+== On the Versatile Board ==
+
+{{{
+
+
+
+}}}
