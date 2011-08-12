@@ -531,3 +531,6 @@ samples  %        symbol name
 user41@ca9-natty:~/seti_boinc/client$
 
 }}}
+
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0AmQeO7G668E3dHd6VU16X3lqMWhST1hIRk9namN1blE&transpose=1&headers=-1&range=A30%3AG31&gid=6&pub=1","options":{"vAxes":[{"min":null,"title":null,"max":null}],"hAxis":{"maxAlternation":1},"hasLabelsColumn":true,"isStacked":false,"width":600,"height":371},"state":{},"chartType":"ColumnChart","chartName":"Chart 1"} </script>
