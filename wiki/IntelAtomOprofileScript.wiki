@@ -1,11 +1,120 @@
-#summary One-sentence summary of this page.
+#summary The script used to profile SETI@Home on Atom processors
 
-= Introduction =
+= This script was used to profile SETI at home on x86 (Atom) =
 
-Add your content here.
+{{{
+#!/bin/bash
+SleepSeconds=100 
 
+./seti_boinc --standalone &
 
-= Details =
+# Running Timer Mode
+sudo rm -r /var/lib/oprofile/
+sudo rm -r /root/.oprofile/daemonrc
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --start
+sudo opcontrol --status
+echo "profiling for $SleepSeconds seconds"
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> Nehalem_Timer_Mode.txt
+sudo opreport >> Nehalem_Timer_Mode.txt
+echo " " >> Nehalem_Timer_Mode.txt
+sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Nehalem_Timer_Mode.txt
+sudo opcontrol --shutdown
+
+# Running next event
+sudo rm -r /var/lib/oprofile/
+sudo rm -r /root/.oprofile/daemonrc
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=INST_RETIRED:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> Nehalem_INST_RETIRED.txt
+sudo opreport >> Nehalem_INST_RETIRED.txt
+echo " " >> Nehalem_INST_RETIRED.txt
+sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Nehalem_INST_RETIRED.txt
+sudo opcontrol --shutdown
+
+# Running next event 
+sudo rm -r /var/lib/oprofile/
+sudo rm -r /root/.oprofile/daemonrc
+date
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=LLC_MISSES:10000:0x41:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> Nehalem_LLC_MISSES.txt
+sudo opreport >> Nehalem_LLC_MISSES.txt
+echo " " >> Nehalem_LLC_MISSES.txt
+sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Nehalem_LLC_MISSES.txt
+sudo opcontrol --shutdown
+
+# Running next event 
+sudo rm -r /var/lib/oprofile/
+sudo rm -r /root/.oprofile/daemonrc
+date
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=LLC_REFS:10000:0x4f:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> Nehalem_LLC_REFS.txt
+sudo opreport >> Nehalem_LLC_REFS.txt
+echo " " >> Nehalem_LLC_REFS.txt
+sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Nehalem_LLC_REFS.txt
+sudo opcontrol --shutdown
+
+# Running next event 
+sudo rm -r /var/lib/oprofile/
+sudo rm -r /root/.oprofile/daemonrc
+date
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=BR_INST_RETIRED:10000:0x00:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> Nehalem_BR_INST_RETIRED.txt
+sudo opreport >> Nehalem_BR_INST_RETIRED.txt
+echo " " >> Nehalem_BR_INST_RETIRED.txt
+sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Nehalem_BR_INST_RETIRED.txt
+sudo opcontrol --shutdown
+
+# Running next event
+sudo rm -r /var/lib/oprofile/
+sudo rm -r /root/.oprofile/daemonrc
+date
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=BR_MISS_PRED_RETIRED:10000:0x00:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> Nehalem_BR_MISS_PRED_RETIRED.txt
+sudo opreport >> Nehalem_BR_MISS_PRED_RETIRED.txt
+echo " " >> Nehalem_BR_MISS_PRED_RETIRED.txt
+sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Nehalem_BR_MISS_PRED_RETIRED.txt
+sudo opcontrol --shutdown
+}}}
+
 
 === Atom Events ===
 
