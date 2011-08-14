@@ -1,0 +1,551 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+=== Atom Events ===
+
+{{{
+xbmc@atom:~/Documents/boinc/seti_boinc/client$ sudo opcontrol --list-events | more
+oprofile: available events for CPU type "Intel Atom"
+
+See Intel Architecture Developer's Manual Volume 3B, Appendix A and
+Intel Architecture Optimization Reference Manual (730795-001)
+
+CPU_CLK_UNHALTED: (counter: all)
+	Clock cycles when not halted (min count: 6000) 
+	Unit masks (default 0x0)
+	----------
+	0x00: core_p Core cycles when core is not halted 
+	0x01: bus Bus cycles when core is not halted 
+	0x02: no_other Bus cycles when core is active and the other is halted 
+UNHALTED_REFERENCE_CYCLES: (counter: all)
+	Unhalted reference cycles (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: No unit mask 
+INST_RETIRED: (counter: all)
+	number of instructions retired (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: No unit mask 
+LLC_MISSES: (counter: all)
+	Last level cache demand requests from this core that missed the LLC (min count: 6000) 
+	Unit masks (default 0x41)
+	----------
+	0x41: No unit mask 
+LLC_REFS: (counter: all)
+	Last level cache demand requests from this core (min count: 6000) 
+	Unit masks (default 0x4f)
+	----------
+	0x4f: No unit mask 
+BR_INST_RETIRED: (counter: all)
+	number of branch instructions retired (min count: 500) 
+	Unit masks (default 0x0)
+	----------
+	0x00: any Retired branch instructions 
+	0x01: pred_not_taken Retired branch instructions that were predicted not-taken 
+	0x02: mispred_not_taken Retired branch instructions that were mispredicted not-taken 
+	0x04: pred_taken Retired branch instructions that were predicted taken 
+	0x08: mispred_taken Retired branch instructions that were mispredicted taken 
+	0x0a: mispred Retired mispredicted branch instructions (precise event) 
+	0x0c: taken Retired taken branch instructions 
+	0x0f: any1 Retired branch instructions 
+BR_MISS_PRED_RETIRED: (counter: all)
+	number of mispredicted branches retired (precise) (min count: 500) 
+STORE_FORWARDS: (counter: all)
+	Good store forwards (min count: 6000) 
+	Unit masks (default 0x81)
+	----------
+	0x81: good Good store forwards 
+SEGMENT_REG_LOADS: (counter: all)
+	Number of segment register loads (min count: 6000) 
+	Unit masks (default 0x0)
+	----------
+	0x00: any Number of segment register loads 
+PREFETCH: (counter: all)
+	Streaming SIMD Extensions (SSE) Prefetch instructions executed (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: prefetcht0 Streaming SIMD Extensions (SSE) PrefetchT0 instructions executed 
+	0x06: sw_l2 Streaming SIMD Extensions (SSE) PrefetchT1 and PrefetchT2 instructions executed 
+	0x08: prefetchnta Streaming SIMD Extensions (SSE) Prefetch NTA instructions executed 
+DATA_TLB_MISSES: (counter: all)
+	Memory accesses that missed the DTLB (min count: 6000) 
+	Unit masks (default 0x7)
+
+	0x07: dtlb_miss Memory accesses that missed the DTLB 
+	0x05: dtlb_miss_ld DTLB misses due to load operations 
+	0x09: l0_dtlb_miss_ld L0_DTLB misses due to load operations 
+	0x06: dtlb_miss_st DTLB misses due to store operations 
+PAGE_WALKS: (counter: all)
+	Page walks (min count: 6000) 
+	Unit masks (default 0x3)
+	----------
+	0x03: walks Number of page-walks executed 
+	0x03: cycles Duration of page-walks in core cycles 
+X87_COMP_OPS_EXE: (counter: all)
+	Floating point computational micro-ops (min count: 6000) 
+	Unit masks (default 0x81)
+	----------
+	0x01: s Floating point computational micro-ops executed 
+	0x81: ar Floating point computational micro-ops retired 
+FP_ASSIST: (counter: all)
+	Floating point assists (min count: 6000) 
+	Unit masks (default 0x81)
+	----------
+	0x81: ar Floating point assists 
+MUL: (counter: all)
+	Multiply operations (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: s Multiply operations executed 
+	0x81: ar Multiply operations retired 
+DIV: (counter: all)
+	Divide operations (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: s Divide operations executed 
+	0x81: ar Divide operations retired 
+CYCLES_DIV_BUSY: (counter: all)
+	Cycles the driver is busy (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: No unit mask 
+CORE: (counter: all)
+	Cycles L2 address bus is in use (min count: 6000) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+L2_DBUS_BUSY: (counter: all)
+	Cycles the L2 cache data bus is busy (min count: 6000) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+L2_LINES_IN: (counter: all)
+	L2 cache misses (min count: 500) 
+	Unit masks (default 0x1e0)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x60: all All inclusive 
+	0x20: hw Hardware prefetch only 
+	0x00: exclude_hw Exclude hardware prefetch 
+L2_M_LINES_IN: (counter: all)
+	L2 cache line modifications (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+L2_LINES_OUT: (counter: all)
+	L2 cache lines evicted (min count: 500) 
+	Unit masks (default 0x1e0)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x60: all All inclusive 
+	0x20: hw Hardware prefetch only 
+	0x00: exclude_hw Exclude hardware prefetch 
+L2_M_LINES_OUT: (counter: all)
+	Modified lines evicted from the L2 cache (min count: 500) 
+	Unit masks (default 0x1e0)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x60: all All inclusive 
+	0x20: hw Hardware prefetch only 
+	0x00: exclude_hw Exclude hardware prefetch 
+L2_IFETCH: (counter: all)
+	L2 cacheable instruction fetch requests (min count: 6000) 
+	Unit masks (default 0x18f)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x08: modified Counts modified state 
+	0x04: exclusive Counts exclusive state 
+	0x02: shared Counts shared state 
+	0x01: invalid Counts invalid state 
+L2_LD: (counter: all)
+	L2 cache reads (min count: 6000) 
+	Unit masks (default 0x1ef)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core.
+	0x60: all All inclusive 
+	0x20: hw Hardware prefetch only 
+	0x00: exclude_hw Exclude hardware prefetch 
+	0x08: modified Counts modified state 
+	0x04: exclusive Counts exclusive state 
+	0x02: shared Counts shared state 
+	0x01: invalid Counts invalid state 
+L2_ST: (counter: all)
+	L2 store requests (min count: 6000) 
+	Unit masks (default 0x18f)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x08: modified Counts modified state 
+	0x04: exclusive Counts exclusive state 
+	0x02: shared Counts shared state 
+	0x01: invalid Counts invalid state 
+L2_LOCK: (counter: all)
+	L2 locked accesses (min count: 6000) 
+	Unit masks (default 0x18f)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x08: modified Counts modified state 
+	0x04: exclusive Counts exclusive state 
+	0x02: shared Counts shared state 
+	0x01: invalid Counts invalid state 
+L2_RQSTS: (counter: all)
+	L2 cache requests (min count: 6000) 
+	Unit masks (default 0x1ef)
+	----------
+	0x41: i_state L2 cache demand requests from this core that missed the L2 
+	0x4f: mesi L2 cache demand requests from this core 
+
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x60: all All inclusive 
+	0x20: hw Hardware prefetch only 
+	0x00: exclude_hw Exclude hardware prefetch 
+	0x08: modified Counts modified state 
+	0x04: exclusive Counts exclusive state 
+	0x02: shared Counts shared state 
+	0x01: invalid Counts invalid state 
+L2_REJECT_BUSQ: (counter: all)
+	Rejected L2 cache requests (min count: 500) 
+	Unit masks (default 0x1ef)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x60: all All inclusive 
+	0x20: hw Hardware prefetch only 
+	0x00: exclude_hw Exclude hardware prefetch 
+	0x08: modified Counts modified state 
+	0x04: exclusive Counts exclusive state 
+	0x02: shared Counts shared state 
+	0x01: invalid Counts invalid state 
+L2_NO_REQ: (counter: all)
+	Cycles no L2 cache requests are pending (min count: 6000) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+EIST_TRANS: (counter: all)
+	Number of Enhanced Intel SpeedStep(R) Technology (EIST) transitions (min count: 6000) 
+THERMAL_TRIP: (counter: all)
+	Number of thermal trips (min count: 6000) 
+	Unit masks (default 0xc0)
+	----------
+	0xc0: thermal_trip Number of thermal trips. 
+L1D_CACHE: (counter: all)
+	L1d Cache accesses (min count: 6000) 
+	Unit masks (default 0x21)
+	----------
+	0x21: ld L1 Cacheable Data Reads 
+	0x22: st L1 Cacheable Data Writes 
+BUS_REQUEST_OUTSTANDING: (counter: all)
+	Outstanding cacheable data read bus requests duration (min count: 6000) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_BNR_DRV: (counter: all)
+	Number of Bus Not Ready signals asserted (min count: 6000) 
+	Unit masks (default 0x0)
+	----------
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_DRDY_CLOCKS: (counter: all)
+	Bus cycles when data is sent on the bus (min count: 6000) 
+	Unit masks (default 0x0)
+	----------
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_LOCK_CLOCKS: (counter: all)
+	Bus cycles when a LOCK signal is asserted. (min count: 6000) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_DATA_RCV: (counter: all)
+	Bus cycles while processor receives data (min count: 6000) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+BUS_TRANS_BRD: (counter: all)
+	Burst read bus transactions (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_TRANS_RFO: (counter: all)
+	RFO bus transactions (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_TRANS_WB: (counter: all)
+	Explicit writeback bus transactions (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents
+BUS_TRANS_IFETCH: (counter: all)
+	Instruction-fetch bus transactions. (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_TRANS_INVAL: (counter: all)
+	Invalidate bus transactions (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_TRANS_PWR: (counter: all)
+	Partial write bus transaction. (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_TRANS_P: (counter: all)
+	Partial bus transactions (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_TRANS_IO: (counter: all)
+
+	IO bus transactions (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_TRANS_DEF: (counter: all)
+	Deferred bus transactions (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_TRANS_BURST: (counter: all)
+	Burst (full cache-line) bus transactions. (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_TRANS_MEM: (counter: all)
+	Memory bus transactions (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_TRANS_ANY: (counter: all)
+	All bus transactions (min count: 500)
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+EXT_SNOOP: (counter: all)
+	External snoops (min count: 500) 
+	Unit masks (default 0x18f)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x08: modified Counts modified state 
+	0x04: exclusive Counts exclusive state 
+	0x02: shared Counts shared state 
+	0x01: invalid Counts invalid state 
+BUS_HIT_DRV: (counter: all)
+	HIT signal asserted (min count: 500) 
+	Unit masks (default 0x0)
+	----------
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_HITM_DRV: (counter: all)
+	HITM signal asserted (min count: 500) 
+	Unit masks (default 0x0)
+	----------
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUSQ_EMPTY: (counter: all)
+	Bus queue is empty (min count: 500) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores.
+
+	0x80: this This Core. 
+SNOOP_STALL_DRV: (counter: all)
+	Bus stalled for snoops (min count: 6000) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+	0x00: this This agent 
+	0x40: any Include any agents 
+BUS_IO_WAIT: (counter: all)
+	IO requests waiting in the bus queue (min count: 6000) 
+	Unit masks (default 0x180)
+	----------
+	0x180: all All cores. 
+	0x80: this This Core. 
+ICACHE: (counter: all)
+	Instruction cache accesses (min count: 6000) 
+	Unit masks (default 0x3)
+	----------
+	0x03: accesses Instruction fetches 
+	0x02: misses Icache miss 
+ITLB: (counter: all)
+	ITLB events (min count: 6000) 
+	Unit masks (default 0x4)
+	----------
+	0x04: flush ITLB flushes 
+	0x02: misses ITLB misses 
+MACRO_INSTS: (counter: all)
+	instructions decoded (min count: 6000) 
+	Unit masks (default 0x3)
+	----------
+	0x02: cisc_decoded CISC macro instructions decoded 
+	0x03: all_decoded All Instructions decoded
+
+SIMD_UOPS_EXEC: (counter: all)
+	SIMD micro-ops executed (min count: 6000) 
+	Unit masks (default 0x80)
+	----------
+	0x00: s SIMD micro-ops executed (excluding stores) 
+	0x80: ar SIMD micro-ops retired (excluding stores) 
+SIMD_SAT_UOP_EXEC: (counter: all)
+	SIMD saturated arithmetic micro-ops executed (min count: 6000) 
+	Unit masks (default 0x0)
+	----------
+	0x00: s SIMD saturated arithmetic micro-ops executed 
+	0x80: ar SIMD saturated arithmetic micro-ops retired 
+SIMD_UOP_TYPE_EXEC: (counter: all)
+	SIMD packed microops executed (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: s SIMD packed multiply microops executed 
+	0x81: ar SIMD packed multiply microops retired 
+	0x02: s SIMD packed shift micro-ops executed 
+	0x82: ar SIMD packed shift micro-ops retired 
+	0x04: s SIMD pack micro-ops executed 
+	0x84: ar SIMD pack micro-ops retired 
+	0x08: s SIMD unpack micro-ops executed 
+	0x88: ar SIMD unpack micro-ops retired 
+	0x10: s SIMD packed logical microops executed 
+	0x90: ar SIMD packed logical microops retired 
+	0x20: s SIMD packed arithmetic micro-ops executed 
+	0xa0: ar SIMD packed arithmetic micro-ops retired 
+UOPS_RETIRED: (counter: all)
+	Micro-ops retired (min count: 6000) 
+	Unit masks (default 0x10)
+	----------
+	0x10: any Micro-ops retired
+
+MACHINE_CLEARS: (counter: all)
+	Self-Modifying Code detected (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: No unit mask 
+CYCLES_INT_MASKED: (counter: all)
+	Cycles during which interrupts are disabled (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: cycles_int_masked Cycles during which interrupts are disabled 
+	0x02: cycles_int_pending_and_masked Cycles during which interrupts are pending and disabled 
+SIMD_INST_RETIRED: (counter: all)
+	Retired Streaming SIMD Extensions (SSE) instructions (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: packed_single Retired Streaming SIMD Extensions (SSE) packed-single instructions 
+	0x02: scalar_single Retired Streaming SIMD Extensions (SSE) scalar-single instructions 
+	0x04: packed_double Retired Streaming SIMD Extensions 2 (SSE2) packed-double instructions 
+	0x08: scalar_double Retired Streaming SIMD Extensions 2 (SSE2) scalar-double instructions 
+	0x10: vector Retired Streaming SIMD Extensions 2 (SSE2) vector instructions 
+	0x1f: any Retired Streaming SIMD instructions 
+HW_INT_RCV: (counter: all)
+	Hardware interrupts received (min count: 6000) 
+SIMD_COMP_INST_RETIRED: (counter: all)
+	Retired computational Streaming SIMD Extensions (SSE) instructions. (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: packed_single Retired computational Streaming SIMD Extensions (SSE) packed-single 
+              instructions 
+	0x02: scalar_single Retired computational Streaming SIMD Extensions (SSE) scalar-single 
+              instructions 
+	0x04: packed_double Retired computational Streaming SIMD Extensions 2 (SSE2) packed-double 
+              instructions
+
+	Retired computational Streaming SIMD Extensions (SSE) instructions. (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: packed_single Retired computational Streaming SIMD Extensions (SSE) packed-single 
+              instructions 
+	0x02: scalar_single Retired computational Streaming SIMD Extensions (SSE) scalar-single 
+              instructions 
+	0x04: packed_double Retired computational Streaming SIMD Extensions 2 (SSE2) packed-double 
+              instructions 
+	0x08: scalar_double Retired computational Streaming SIMD Extensions 2 (SSE2) scalar-double 
+              instructions 
+MEM_LOAD_RETIRED: (counter: all)
+	Retired loads (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: l2_hit Retired loads that hit the L2 cache (precise event) 
+	0x02: l2_miss Retired loads that miss the L2 cache (precise event) 
+	0x04: dtlb_miss Retired loads that miss the DTLB (precise event) 
+SIMD_ASSIST: (counter: all)
+	SIMD assists invoked (min count: 6000) 
+SIMD_INSTR_RETIRED: (counter: all)
+	SIMD Instructions retired (min count: 6000) 
+SIMD_SAT_INSTR_RETIRED: (counter: all)
+	Saturated arithmetic instructions retired (min count: 6000) 
+BR_INST_DECODED: (counter: all)
+	Branch instructions decoded (min count: 6000) 
+BOGUS_BR: (counter: all)
+	Bogus branches (min count: 6000) 
+BACLEARS: (counter: all)
+	BACLEARS asserted (min count: 6000) 
+	Unit masks (default 0x1)
+	----------
+	0x01: No unit mask 
+
+
+}}}
