@@ -1513,3 +1513,34 @@ samples  %        symbol name
 1         0.0057  t_funct(int, int, int)
 1         0.0057  usleep
 }}}
+
+=== Core i3 list of events ===
+
+{{{
+jeff@east:~/stuff/seti_boinc/client$ sudo opcontrol --list-events
+oprofile: available events for CPU type "Intel Architectural Perfmon"
+
+See Intel 64 and IA-32 Architectures Software Developer's Manual
+Volume 3B (Document 253669) Chapter 18 for architectural perfmon events
+This is a limited set of fallback events because oprofile doesn't know your CPU
+CPU_CLK_UNHALTED: (counter: all)
+	Clock cycles when not halted (min count: 6000) 
+INST_RETIRED: (counter: all)
+	number of instructions retired (min count: 6000) 
+LLC_MISSES: (counter: all)
+	Last level cache demand requests from this core that missed the LLC (min count: 6000) 
+	Unit masks (default 0x41)
+	----------
+	0x41: No unit mask 
+LLC_REFS: (counter: all)
+	Last level cache demand requests from this core (min count: 6000) 
+	Unit masks (default 0x4f)
+	----------
+	0x4f: No unit mask 
+BR_INST_RETIRED: (counter: all)
+	number of branch instructions retired (min count: 500) 
+BR_MISS_PRED_RETIRED: (counter: all)
+	number of mispredicted branches retired (precise) (min count: 500) 
+
+
+}}}
