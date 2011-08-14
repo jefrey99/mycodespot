@@ -19,10 +19,10 @@ sudo opcontrol --status
 echo "profiling for $SleepSeconds seconds"
 sleep $SleepSeconds
 sudo opcontrol --dump
-date >> Nehalem_Timer_Mode.txt
-sudo opreport >> Nehalem_Timer_Mode.txt
-echo " " >> Nehalem_Timer_Mode.txt
-sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Nehalem_Timer_Mode.txt
+date >> Atom_Timer_Mode.txt
+sudo opreport >> Atom_Timer_Mode.txt
+echo " " >> Atom_Timer_Mode.txt
+sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Atom_Timer_Mode.txt
 sudo opcontrol --shutdown
 
 # Running next event
@@ -36,10 +36,10 @@ sudo opcontrol --start
 sudo opcontrol --status
 sleep $SleepSeconds
 sudo opcontrol --dump
-date >> Nehalem_INST_RETIRED.txt
-sudo opreport >> Nehalem_INST_RETIRED.txt
-echo " " >> Nehalem_INST_RETIRED.txt
-sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Nehalem_INST_RETIRED.txt
+date >> Atom_INST_RETIRED.txt
+sudo opreport >> Atom_INST_RETIRED.txt
+echo " " >> Atom_INST_RETIRED.txt
+sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Atom_INST_RETIRED.txt
 sudo opcontrol --shutdown
 
 # Running next event 
@@ -54,7 +54,7 @@ sudo opcontrol --start
 sudo opcontrol --status
 sleep $SleepSeconds
 sudo opcontrol --dump
-date >> Nehalem_LLC_MISSES.txt
+date >> Atom_LLC_MISSES.txt
 sudo opreport >> Nehalem_LLC_MISSES.txt
 echo " " >> Nehalem_LLC_MISSES.txt
 sudo opreport -l /home/jeff/stuff/seti_boinc/client/seti_boinc >> Nehalem_LLC_MISSES.txt
