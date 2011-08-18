@@ -71,6 +71,21 @@ Kernel Hacking ---> Select [*] Kernel Debugging
 <Exit>
 <Exit> and Save will start the build
 }}}
+ # Modify the kernel source
+ #* In /arch/arm/kernel/pmu.c
+{{{
+static int __devinit pmu_device_probe(struct platform_device *pdev)
+{
+	printk("pmu_device_probe called \n" ); //Add this line
+	if (pdev->id < 0 || pdev->id >= ARM_NUM_PMU_DEVICES) {
+		pr_warning("received registration request for unknown 
+}}}
+{{{
+static int __devinit pmu_device_probe(struct platform_device *pdev)
+{
+	printk("pmu_device_probe called \n" ); //Add this line
+	if (pdev->id < 0 || pdev->id >= ARM_NUM_PMU_DEVICES) {
+}}}
  # Run oprofile
 {{{
 $ sudo opcontrol --init
