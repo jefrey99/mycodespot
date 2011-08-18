@@ -230,6 +230,13 @@ To use oprofile in events mode you will need to connect the RVDS debugger to the
  * Include 'jtag=on kernel argument (from uboot)
  * Disable "semihosting" when running linux (from RVDS)
  * Disable the vector catch (from RVDS)
+ * Change configuration "no reset, no stop" (from RVDS)
+ # ===Booting Linux===
+   * Insert SD card
+   * Reset board
+   * Boot to command propt
+   * Connect RVDS
+   * Run command sequence (below)
  # ===Command sequence===
 {{{
 $ sudo opcontrol --init
