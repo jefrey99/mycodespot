@@ -44,32 +44,7 @@ $ sudo mount -l /dev/sdx1 /media/sdcard
 $ sudo cp vmlinux /media/sdcard/boot/vmlinux
 }}}
 
-=== On i.MX53 target ===
 
- # ===Change the name of vmlinux to vmlinux-'uname -r'===
-{{{
-$ cd /boot
-$ sudo cp vmlinux vmlinux-'uname -r'
-$ cd ~
-}}}
- # ===Install oprofile (on ubuntu)===
-{{{
-$ sudo apt-get install oprofile
-}}}
- # ===Run oprofile===
-{{{
-$ sudo opcontrol --init
-$ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
-$ sudo opcontrol --start
-$ sudo opcontrol --status
-// do stuff 
-$ sudo opcontrol --dump
-$ sudo opcontrol --stop
-}}}
- # ===Run opreport ===
-{{{
-$ sudo opreport --symbols
-}}}
 ==Using Event Mode and Counters==
  # ===Setting up the kernel with menuconfig===
 {{{
@@ -239,4 +214,31 @@ $ sudo opcontrol --stop
  # Run opreport 
 {{{
 $ sudo opreport
+}}}
+
+== On i.MX53 target ==
+
+ # ===Change the name of vmlinux to vmlinux-'uname -r'===
+{{{
+$ cd /boot
+$ sudo cp vmlinux vmlinux-'uname -r'
+$ cd ~
+}}}
+ # ===Install oprofile (on ubuntu)===
+{{{
+$ sudo apt-get install oprofile
+}}}
+ # ===Run oprofile===
+{{{
+$ sudo opcontrol --init
+$ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
+$ sudo opcontrol --start
+$ sudo opcontrol --status
+// do stuff 
+$ sudo opcontrol --dump
+$ sudo opcontrol --stop
+}}}
+ # ===Run opreport ===
+{{{
+$ sudo opreport --symbols
 }}}
