@@ -170,6 +170,20 @@ struct platform_device pmu_device = { //Add this line
 static struct resource usbh2_wakeup_resources[] = {
 	{
 }}}
+   * In /arch/arm/mach-mx5/devices.h 
+{{{
+extern struct platform_device mxc_usbh1_wakeup_device;
+extern struct platform_device mxc_usbh2_wakeup_device;
+extern struct platform_device pmu_device; //JE
+}}}
+   * In /arch/arm/mach-mx5/board-mx53_loco.c
+{{{
+	imx53_add_ipuv3(0, &ipu_data);
+
+	mxc_register_device(&pmu_device, NULL); //JE
+
+	for (i = 0; i < ARRAY_SIZE(loco_fb_data); i++)
+}}}
  # Run oprofile
 {{{
 $ sudo opcontrol --init
