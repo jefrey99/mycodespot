@@ -6,7 +6,13 @@
 ==In timer mode ==
  # ===Setting up the kernel with menuconfig===
 {{{
-$ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a kernel rebuild
+$ git clone git://sw-git.freescale.net/linux-2.6-imx.git
+$ export CROSS_COMPILE=/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-
+$ cd linux-2.6-imx/
+$ git checkout -b 2.6.38 --track origin/imx_2.6.38
+$ make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} distclean
+$ make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} imx5_defconfig
+$ make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} menuconfig //described in next step
 }}}
  # ===Select the kernel modules when GUI based editor appears===
 {{{
@@ -19,6 +25,10 @@ Kernel Hacking ---> Select [*] Kernel Debugging
 *Note: do not select performance counters and monitoring support for time mode. i.e.:
 {{{
 General Setup ---> Kernel Performance Events And Counters  ---> [ ] Kernel performance events and counters
+}}}
+ # ===Build the new kernel ===
+{{{
+$ make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} uImage
 }}}
  # ===Find the new kernel ===
 {{{
@@ -61,10 +71,19 @@ $ sudo opcontrol --stop
 $ sudo opreport --symbols
 }}}
 ==Using Event Mode and Counters==
+ # ===Setting up the kernel with menuconfig===
+{{{
+$ git clone git://sw-git.freescale.net/linux-2.6-imx.git
+$ export CROSS_COMPILE=/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-
+$ cd linux-2.6-imx/
+$ git checkout -b 2.6.38 --track origin/imx_2.6.38
+$ make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} distclean
+$ make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} imx5_defconfig
+$ make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} menuconfig //described in next step
+}}}
  # ===Select the kernel modules when GUI based editor appears===
 {{{
 General Setup ---> Kernel Performance Events And Counters  ---> [*] Kernel performance events and counters
-General Setup ---> Kernel Performance Events And Counters  ---> [*] Debug: use vmalloc to back perf mmap() buffers
 General Setup ---> Select [*] Profiling Support
 General Setup ---> Select <*> OProfile system profiling 
 Kernel Hacking ---> Select [*] Kernel Debugging
@@ -183,6 +202,23 @@ extern struct platform_device pmu_device; //Add this line
 	mxc_register_device(&pmu_device, NULL); //Add this line
 
 	for (i = 0; i < ARRAY_SIZE(loco_fb_data); i++)
+}}}
+ # ===Build the new kernel ===
+{{{
+$ make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} uImage
+}}}
+ # ===Find the new kernel ===
+{{{
+// The new kernel image (uImage) is put in ../arch/arm/boot/
+}}}
+ # ===Copy the new kernel image to SD card===
+{{{
+$ sudo dd if=uImage of=/dev/sdx bs=512 seek=2048 &sync
+}}}
+ # ===Copy the vmlinux image to the /boot directory of the target rootfs===
+{{{
+$ sudo mount -l /dev/sdx1 /media/sdcard
+$ sudo cp vmlinux /media/sdcard/boot/vmlinux
 }}}
  # ===Setting up RVDS===
 To use oprofile in events mode you will need to connect the RVDS debugger to the ARM core via JTAG. In order to run the kernel while connceted to the JTAG debugger you must include the kernel argument "jtag=on" in the bootloader arguments. Once this is done you will also need to modify the settings of your ARM Cortex-A8 connection. 
