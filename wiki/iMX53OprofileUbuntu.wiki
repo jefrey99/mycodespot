@@ -32,7 +32,7 @@ $ make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} uImage
 }}}
  # ===Find the new kernel ===
 {{{
-// The new kernel image (uImage) is put in ../ltib/rootfs/boot/
+// The new kernel image (uImage) is put in ../arch/arm/boot/
 }}}
  # ===Copy the new kernel image to SD card===
 {{{
@@ -195,6 +195,35 @@ $ sudo dd if=uImage of=/dev/sdx bs=512 seek=2048 &sync
 $ sudo mount -l /dev/sdx1 /media/sdcard
 $ sudo cp vmlinux /media/sdcard/boot/vmlinux
 }}}
+
+
+= Running oprofile on i.MX53 target =
+
+ # ===Change the name of vmlinux to vmlinux-'uname -r'===
+{{{
+$ cd /boot
+$ sudo cp vmlinux vmlinux-'uname -r'
+$ cd ~
+}}}
+ # ===Install oprofile (on ubuntu)===
+{{{
+$ sudo apt-get install oprofile
+}}}
+ ==Run oprofile in timer mode==
+{{{
+$ sudo opcontrol --init
+$ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
+$ sudo opcontrol --start
+$ sudo opcontrol --status
+// do stuff 
+$ sudo opcontrol --dump
+$ sudo opcontrol --stop
+}}}
+ ==Run opreport ==
+{{{
+$ sudo opreport 
+}}}
+ ==Run oprofile in event mode==
  # ===Setting up RVDS===
 To use oprofile in events mode you will need to connect the RVDS debugger to the ARM core via JTAG. In order to run the kernel while connceted to the JTAG debugger you must include the kernel argument "jtag=on" in the bootloader arguments. Once this is done you will also need to modify the settings of your ARM Cortex-A8 connection. 
  * Include 'jtag=on kernel argument (from uboot)
@@ -214,31 +243,4 @@ $ sudo opcontrol --stop
  # Run opreport 
 {{{
 $ sudo opreport
-}}}
-
-== On i.MX53 target ==
-
- # ===Change the name of vmlinux to vmlinux-'uname -r'===
-{{{
-$ cd /boot
-$ sudo cp vmlinux vmlinux-'uname -r'
-$ cd ~
-}}}
- # ===Install oprofile (on ubuntu)===
-{{{
-$ sudo apt-get install oprofile
-}}}
- # ===Run oprofile===
-{{{
-$ sudo opcontrol --init
-$ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
-$ sudo opcontrol --start
-$ sudo opcontrol --status
-// do stuff 
-$ sudo opcontrol --dump
-$ sudo opcontrol --stop
-}}}
- # ===Run opreport ===
-{{{
-$ sudo opreport --symbols
 }}}
