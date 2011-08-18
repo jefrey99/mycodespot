@@ -184,7 +184,12 @@ extern struct platform_device pmu_device; //Add this line
 
 	for (i = 0; i < ARRAY_SIZE(loco_fb_data); i++)
 }}}
-=== # Run oprofile===
+ # ===Setting up RVDS===
+To use oprofile in events mode you will need to connect the RVDS debugger to the ARM core via JTAG. In order to run the kernel while connceted to the JTAG debugger you must include the kernel argument "jtag=on" in the bootloader arguments. Once this is done you will also need to modify the settings of your ARM Cortex-A8 connection. 
+ * Include 'jtag=on kernel argument (from uboot)
+ * Disable "semihosting" when running linux (from RVDS)
+ * Disable the vector catch (from RVDS)
+ # ===Run oprofile===
 {{{
 $ sudo opcontrol --init
 $ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
