@@ -144,3 +144,256 @@ PLE_REQ_PRG: (counter: 1, 2, 3, 4, 5, 6)
 	PLE request programmed (min count: 500) 
 
 }}}
+
+= SETI script used to capture events =
+
+{{{
+#!/bin/bash
+# ARM Cortex A9 Oprofile Script
+SleepSeconds=5 #532 on real run
+sudo opcontrol --shutdown
+./seti_boinc --standalone &
+
+# Running Timer Mode
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --start
+sudo opcontrol --status
+echo "profiling for $SleepSeconds seconds"
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> Atom_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=L2_ACCESS:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=L2_CACH_MISS:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=L1_DATA_MISS:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=L1_INST:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=L1_DATA_MISS:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=PC_BRANCH_FAILED:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=PC_BRANCH_TAKEN:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=L1_NEON_DATA:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=L2_NEON_HIT:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=INS_MAIN_EXEC:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=INS_SND_EXEC:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=INS_LSU:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --no-vmlinux
+sudo opcontrol --reset
+sudo opcontrol --event=INS_FP_RR:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> ARM_Versatile_Oprofile.txt
+sudo opreport >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+sudo opreport -l /home/user41/seti_boinc/client/seti_boinc >> ARM_Versatile_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> ARM_Versatile_Oprofile.txt
+echo " " >> ARM_Versatile_Oprofile.txt
+
+
+}}}
