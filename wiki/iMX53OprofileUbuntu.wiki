@@ -184,7 +184,7 @@ extern struct platform_device pmu_device; //Add this line
 
 	for (i = 0; i < ARRAY_SIZE(loco_fb_data); i++)
 }}}
- # ===Run oprofile===
+=== # Run oprofile===
 {{{
 $ sudo opcontrol --init
 $ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
