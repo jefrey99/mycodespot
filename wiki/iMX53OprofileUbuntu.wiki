@@ -140,6 +140,37 @@ init_pmu(enum arm_pmu_type device)
 	printk("init_pmu called \n"); //Add this line
 	switch (device) {
 }}}
+   * In /arch/arm/mach-mx5/devices.c
+{{{
+#include <mach/imx-uart.h>
+#include <mach/mx53.h> //Add this line
+#include <mach/irqs.h>
+#include <asm/pmu.h>
+}}}
+{{{
+		.dma_mask = &usb_dma_mask,
+		.coherent_dma_mask = DMA_BIT_MASK(32),
+	},
+};
+static struct resource pmu_resources[] = { //Add this line
+	{ //Add this line
+		.start = MX53_INT_PMU, //Add this line
+		.end = MX53_INT_PMU, //Add this line
+
+		.flags = IORESOURCE_IRQ, //Add this line
+	}, //Add this line
+}; //Add this line
+
+struct platform_device pmu_device = { //Add this line
+	.name = "arm-pmu", //Add this line
+	.id = ARM_PMU_DEVICE_CPU, //Add this line
+	.num_resources = ARRAY_SIZE(pmu_resources), //Add this line
+	.resource = pmu_resources, //Add this line
+}; //Add this line
+
+static struct resource usbh2_wakeup_resources[] = {
+	{
+}}}
  # Run oprofile
 {{{
 $ sudo opcontrol --init
