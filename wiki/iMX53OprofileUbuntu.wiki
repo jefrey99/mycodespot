@@ -1,7 +1,7 @@
 #summary How to setup Oprofile for iMX53.
 
 = How to setup Oprofile for iMX53 (ARM Cortex-A8) =
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="4" />
 
 ==In timer mode ==
  # ===Setting up the kernel with LTIB===
