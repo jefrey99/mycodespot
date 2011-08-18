@@ -72,7 +72,7 @@ Kernel Hacking ---> Select [*] Kernel Debugging
 <Exit> and Save will start the build
 }}}
  # Modify the kernel source
- #* In /arch/arm/kernel/pmu.c
+   * In /arch/arm/kernel/pmu.c
 {{{
 static int __devinit pmu_device_probe(struct platform_device *pdev)
 {
