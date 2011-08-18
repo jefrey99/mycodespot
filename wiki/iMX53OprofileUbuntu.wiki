@@ -189,7 +189,7 @@ To use oprofile in events mode you will need to connect the RVDS debugger to the
  * Include 'jtag=on kernel argument (from uboot)
  * Disable "semihosting" when running linux (from RVDS)
  * Disable the vector catch (from RVDS)
- # ===Run oprofile===
+ # ===Run oprofile in events mode===
 {{{
 $ sudo opcontrol --init
 $ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
