@@ -210,6 +210,7 @@ $ cd ~
 $ sudo apt-get install oprofile
 }}}
  ==Run oprofile in timer mode==
+ # ===Command sequence===
 {{{
 $ sudo opcontrol --init
 $ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
@@ -219,7 +220,7 @@ $ sudo opcontrol --status
 $ sudo opcontrol --dump
 $ sudo opcontrol --stop
 }}}
- ==Run opreport ==
+ # ===Run opreport ===
 {{{
 $ sudo opreport 
 }}}
@@ -229,7 +230,7 @@ To use oprofile in events mode you will need to connect the RVDS debugger to the
  * Include 'jtag=on kernel argument (from uboot)
  * Disable "semihosting" when running linux (from RVDS)
  * Disable the vector catch (from RVDS)
- # ===Run oprofile in events mode===
+ # ===Command sequence===
 {{{
 $ sudo opcontrol --init
 $ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
@@ -240,7 +241,7 @@ $ sudo opcontrol --status
 $ sudo opcontrol --dump
 $ sudo opcontrol --stop
 }}}
- # Run opreport 
+ # ===Run opreport ===
 {{{
 $ sudo opreport
 }}}
