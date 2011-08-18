@@ -4,11 +4,11 @@
 
 
 ==In timer mode ==
- # Setting up the kernel with LTIB
+ # ===Setting up the kernel with LTIB===
 {{{
 $ ./ltib -p kernel -c -f       //Configures the kernel package only and forces a kernel rebuild
 }}}
- # Select the kernel modules when GUI based editor appears
+ # ===Select the kernel modules when GUI based editor appears===
 {{{
 General Setup ---> Select [*] Profiling Support
 General Setup ---> Select <*> OProfile system profiling 
@@ -20,33 +20,33 @@ Kernel Hacking ---> Select [*] Kernel Debugging
 {{{
 General Setup ---> Kernel Performance Events And Counters  ---> [ ] Kernel performance events and counters
 }}}
- # Find the new kernel 
+ # ===Find the new kernel ===
 {{{
 // The new kernel image (uImage) is put in ../ltib/rootfs/boot/
 }}}
- # Copy the new kernel image to SD card
+ # ===Copy the new kernel image to SD card===
 {{{
 $ sudo dd if=uImage of=/dev/sdx bs=512 seek=2048 &sync
 }}}
- # Copy the vmlinux image to the /boot directory of the target rootfs
+ # ===Copy the vmlinux image to the /boot directory of the target rootfs===
 {{{
 $ sudo mount -l /dev/sdx1 /media/sdcard
 $ sudo cp vmlinux /media/sdcard/boot/vmlinux
 }}}
 
-==== On i.MX53 target ====
+=== On i.MX53 target ===
 
- # Change the name of vmlinux to vmlinux-'uname -r'
+ # ===Change the name of vmlinux to vmlinux-'uname -r'===
 {{{
 $ cd /boot
 $ sudo cp vmlinux vmlinux-'uname -r'
 $ cd ~
 }}}
- # Install oprofile (on ubuntu)
+ # ===Install oprofile (on ubuntu)===
 {{{
 $ sudo apt-get install oprofile
 }}}
- # Run oprofile
+ # ===Run oprofile===
 {{{
 $ sudo opcontrol --init
 $ sudo opcontrol --vmlinux=/boot/vmlinux-'uname -r'
@@ -56,12 +56,12 @@ $ sudo opcontrol --status
 $ sudo opcontrol --dump
 $ sudo opcontrol --stop
 }}}
- # Run opreport 
+ # ===Run opreport ===
 {{{
 $ sudo opreport --symbols
 }}}
 ==Using Event Mode and Counters==
- # Select the kernel modules when GUI based editor appears
+ # ===Select the kernel modules when GUI based editor appears===
 {{{
 General Setup ---> Kernel Performance Events And Counters  ---> [*] Kernel performance events and counters
 General Setup ---> Kernel Performance Events And Counters  ---> [*] Debug: use vmalloc to back perf mmap() buffers
@@ -71,7 +71,7 @@ Kernel Hacking ---> Select [*] Kernel Debugging
 <Exit>
 <Exit> and Save will start the build
 }}}
- # Modify the kernel source (2.6.38 in this example)
+ # ===Modify the kernel source (2.6.38 in this example)===
    * In /arch/arm/kernel/pmu.c
 {{{
 static int __devinit pmu_device_probe(struct platform_device *pdev)
