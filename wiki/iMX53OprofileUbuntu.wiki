@@ -238,11 +238,5 @@ $ sudo opcontrol --stop
 }}}
  # Run opreport 
 {{{
-$ sudo opreport --symbols
-}}}
-
-{{{
-lucid@lucid-desktop:~$ sudo opreport
-opreport error: No sample file found: try running opcontrol --dump
-or specify a session containing sample files
+$ sudo opreport
 }}}
