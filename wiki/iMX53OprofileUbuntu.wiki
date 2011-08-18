@@ -156,7 +156,6 @@ static struct resource pmu_resources[] = { //Add this line
 	{ //Add this line
 		.start = MX53_INT_PMU, //Add this line
 		.end = MX53_INT_PMU, //Add this line
-
 		.flags = IORESOURCE_IRQ, //Add this line
 	}, //Add this line
 }; //Add this line
