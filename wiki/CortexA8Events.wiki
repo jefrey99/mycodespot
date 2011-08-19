@@ -1,0 +1,118 @@
+#summary List of PMU events for the Cortex-A8.
+
+= PMU events for the Cortex-A8 = 
+
+{{{
+lucid@lucid-desktop:~$ sudo opcontrol --list-events                             
+[sudo] password for lucid:                                                      
+oprofile: available events for CPU type "ARM V7 PMNC"                           
+                                                                                
+See ARM11 Technical Reference Manual                                            
+Cortex A8 DDI (ARM DDI 0344B, revision r1p1)                                    
+PMNC_SW_INCR: (counter: 1, 2, 3, 4)                                             
+        Software increment of PMNC registers (min count: 500)                   
+IFETCH_MISS: (counter: 1, 2, 3, 4)                                              
+        Instruction fetch misses from cache or normal cacheable memory (min cou 
+ITLB_MISS: (counter: 1, 2, 3, 4)                                                
+        Instruction fetch misses from TLB (min count: 500)                      
+DCACHE_REFILL: (counter: 1, 2, 3, 4)                                            
+        Data R/W operation that causes a refill from cache or normal cacheable  
+        500)                                                                    
+DCACHE_ACCESS: (counter: 1, 2, 3, 4)                                            
+        Data R/W from cache (min count: 500)                                    
+DTLB_REFILL: (counter: 1, 2, 3, 4)                                              
+        Data R/W that causes a TLB refill (min count: 500)                      
+DREAD: (counter: 1, 2, 3, 4)                                                    
+        Data read architecturally executed (note: architecturally executed = fo 
+        are unconditional or that pass the condition code) (min count: 500)     
+DWRITE: (counter: 1, 2, 3, 4)                                                   
+        Data write architecturally executed (min count: 500)                    
+INSTR_EXECUTED: (counter: 1, 2, 3, 4)                                           
+        All executed instructions (min count: 500)                              
+EXC_TAKEN: (counter: 1, 2, 3, 4)                                                
+        Exception taken (min count: 500)                                        
+EXC_EXECUTED: (counter: 1, 2, 3, 4)                                             
+        Exception return architecturally executed (min count: 500)              
+CID_WRITE: (counter: 1, 2, 3, 4)                                                
+        Instruction that writes to the Context ID Register architecturally exec 
+        500)                                                                    
+PC_WRITE: (counter: 1, 2, 3, 4)                                                 
+        SW change of PC, architecturally executed (not by exceptions) (min coun 
+PC_IMM_BRANCH: (counter: 1, 2, 3, 4)                                            
+        Immediate branch instruction executed (taken or not) (min count: 500)   
+PC_PROC_RETURN: (counter: 1, 2, 3, 4)                                           
+        Procedure return architecturally executed (not by exceptions) (min coun 
+UNALIGNED_ACCESS: (counter: 1, 2, 3, 4)                                         
+        Unaligned access architecturally executed (min count: 500)              
+PC_BRANCH_MIS_PRED: (counter: 1, 2, 3, 4)                                       
+        Branch mispredicted or not predicted. Counts pipeline flushes because o 
+        count: 500)                                                             
+PC_BRANCH_MIS_USED: (counter: 1, 2, 3, 4)                                       
+        Branch or change in program flow that could have been predicted (min co 
+WRITE_BUFFER_FULL: (counter: 1, 2, 3, 4)                                        
+        Any write buffer full cycle (min count: 500)                            
+L2_STORE_MERGED: (counter: 1, 2, 3, 4)                                          
+        Any store that is merged in L2 cache (min count: 500)                   
+L2_STORE_BUFF: (counter: 1, 2, 3, 4)                                            
+        Any bufferable store from load/store to L2 cache (min count: 500)       
+L2_ACCESS: (counter: 1, 2, 3, 4)                                                
+        Any access to L2 cache (min count: 500)                                 
+L2_CACH_MISS: (counter: 1, 2, 3, 4)                                             
+        Any cacheable miss in L2 cache (min count: 500)                         
+AXI_READ_CYCLES: (counter: 1, 2, 3, 4)                                          
+        Number of cycles for an active AXI read (min count: 500)                
+AXI_WRITE_CYCLES: (counter: 1, 2, 3, 4)                                         
+        Number of cycles for an active AXI write (min count: 500)               
+MEMORY_REPLAY: (counter: 1, 2, 3, 4)                                            
+        Any replay event in the memory subsystem (min count: 500)               
+UNALIGNED_ACCESS_REPLAY: (counter: 1, 2, 3, 4)                                  
+        Unaligned access that causes a replay (min count: 500)                  
+L1_DATA_MISS: (counter: 1, 2, 3, 4)                                             
+        L1 data cache miss as a result of the hashing algorithm (min count: 500 
+L1_INST_MISS: (counter: 1, 2, 3, 4)                                             
+        L1 instruction cache miss as a result of the hashing algorithm (min cou 
+L1_DATA_COLORING: (counter: 1, 2, 3, 4)                                         
+        L1 data access in which a page coloring alias occurs (min count: 500)   
+L1_NEON_DATA: (counter: 1, 2, 3, 4)                                             
+        NEON data access that hits L1 cache (min count: 500)                    
+L1_NEON_CACH_DATA: (counter: 1, 2, 3, 4)                                        
+        NEON cacheable data access that hits L1 cache (min count: 500)          
+L2_NEON: (counter: 1, 2, 3, 4)                                                  
+        L2 access as a result of NEON memory access (min count: 500)            
+L2_NEON_HIT: (counter: 1, 2, 3, 4)                                              
+        Any NEON hit in L2 cache (min count: 500)                               
+L1_INST: (counter: 1, 2, 3, 4)                                                  
+        Any L1 instruction cache access, excluding CP15 cache accesses (min cou 
+PC_RETURN_MIS_PRED: (counter: 1, 2, 3, 4)                                       
+        Return stack misprediction at return stack pop (incorrect target addres 
+PC_BRANCH_FAILED: (counter: 1, 2, 3, 4)                                         
+        Branch prediction misprediction (min count: 500)                        
+PC_BRANCH_TAKEN: (counter: 1, 2, 3, 4)                                          
+        Any predicted branch that is taken (min count: 500)                     
+PC_BRANCH_EXECUTED: (counter: 1, 2, 3, 4)                                       
+        Any taken branch that is executed (min count: 500)                      
+OP_EXECUTED: (counter: 1, 2, 3, 4)                                              
+        Number of operations executed (in instruction or mutli-cycle instructio 
+CYCLES_INST_STALL: (counter: 1, 2, 3, 4)                                        
+        Cycles where no instruction available (min count: 500)                  
+CYCLES_INST: (counter: 1, 2, 3, 4)                                              
+        Number of instructions issued in a cycle (min count: 500)               
+CYCLES_NEON_DATA_STALL: (counter: 1, 2, 3, 4)                                   
+        Number of cycles the processor waits on MRC data from NEON (min count:  
+CYCLES_NEON_INST_STALL: (counter: 1, 2, 3, 4)                                   
+        Number of cycles the processor waits on NEON instruction queue or NEON  
+        count: 500)                                                             
+NEON_CYCLES: (counter: 1, 2, 3, 4)                                              
+        Number of cycles NEON and integer processors are not idle (min count: 5 
+PMU0_EVENTS: (counter: 1, 2, 3, 4)                                              
+        Number of events from external input source PMUEXTIN[0] (min count: 500 
+PMU1_EVENTS: (counter: 1, 2, 3, 4)                                              
+        Number of events from external input source PMUEXTIN[1] (min count: 500 
+PMU_EVENTS: (counter: 1, 2, 3, 4)                                               
+        Number of events from both external input sources PMUEXTIN[0] and PMUEX 
+        500)                                                                    
+CPU_CYCLES: (counter: 0)                                                        
+        Number of CPU cycles (min count: 500)                                   
+lucid@lucid-desktop:~$
+
+}}}
