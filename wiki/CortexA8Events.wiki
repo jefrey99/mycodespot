@@ -116,3 +116,355 @@ CPU_CYCLES: (counter: 0)
 lucid@lucid-desktop:~$
 
 }}}
+
+= SETI oprofile run script =
+{{{
+#!/bin/bash
+# iMX53 - ARM Cortex A8 Oprofile Script
+SleepSeconds=5 #213 on real run
+sudo opcontrol --shutdown
+./seti_boinc --standalone &
+
+# Running Timer Mode
+
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --start
+sudo opcontrol --status
+echo "profiling for $SleepSeconds seconds"
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=L2_ACCESS:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=L2_CACH_MISS:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=L1_DATA_MISS:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=L1_INST:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=L1_DATA_MISS:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=PC_BRANCH_FAILED:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=PC_BRANCH_TAKEN:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=L1_NEON_DATA:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=CYCLES_INST_STALL:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=CYCLES_INST_STALL:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=CYCLES_INST:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=CYCLES_NEON_DATA_STALL:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=CYCLES_NEON_INST_STALL:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=NEON_CYCLES:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=L2_NEON_HIT:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=INS_MAIN_EXEC:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=INS_SND_EXEC:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=INS_LSU:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+# Running next event
+sudo opcontrol --init
+sudo opcontrol --vmlinux=/home/lucid/vmlinux-2.6.38-00462-gc38d9c7-dirty
+sudo opcontrol --reset
+sudo opcontrol --event=INS_FP_RR:10000:0x0:0:1
+sudo opcontrol --start
+sudo opcontrol --status
+sleep $SleepSeconds
+sudo opcontrol --dump
+date >> mx53_Oprofile.txt
+sudo opreport >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+sudo opreport -l /home/lucid/Documents/seti_boinc/client/seti_boinc >> mx53_Oprofile.txt
+sudo opcontrol --shutdown
+echo " " >> mx53_Oprofile.txt
+echo " " >> mx53_Oprofile.txt
+
+}}}
