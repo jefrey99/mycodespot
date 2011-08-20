@@ -881,7 +881,6 @@ samples  %        image name               symbol name
 1         0.0041  seti_boinc               top_sum4(float**, PoTPlan*)
 1         0.0041  seti_boinc               top_sum5(float**, PoTPlan*)
  
- 
 Sat Aug 20 01:36:52 CST 2011
 CPU: ARM V7 PMNC, speed 0 MHz (estimated)
 Counted L1_DATA_MISS events (L1 data cache miss as a result of the hashing algorithm) with a unit mask of 0x00 (No unit mask) count 10000
