@@ -1,0 +1,98 @@
+#summary running benchmarks on all platforms
+
+= Introduction =
+
+
+
+== i.MX53 ==
+Stream
+
+Linpack
+{{{
+lucid@lucid-desktop:~/Documents$ gcc -DSP -DROLL -mtune=cortex-a8 -mfpu=neon -o linpack_dsp_droll linpackc.c -lm
+lucid@lucid-desktop:~/Documents$ ./linpack_dsp_droll 
+Rolled Single Precision Linpack
+
+Rolled Single Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.6        3.80277634e-05  1.19209290e-07 -1.38282776e-05 -7.51018524e-06
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      32698       0.06       0.37
+ times for array with leading dimension of 200
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      36140       0.06       0.34
+Rolled Single  Precision 32698 Kflops ; 10 Reps 
+lucid@lucid-desktop:~/Documents$ gcc -DSP -DUNROLL -mtune=cortex-a8 -mfpu=neon -o linpack_dsp_dunroll linpackc.c -lm
+lucid@lucid-desktop:~/Documents$ ./linpack_dsp_dunroll 
+Unrolled Single Precision Linpack
+
+Unrolled Single Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.6        3.80277634e-05  1.19209290e-07 -1.38282776e-05 -7.51018524e-06
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+ times for array with leading dimension of 200
+       0.02       0.01       0.03      22889       0.09       0.54
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      32698       0.06       0.37
+Unrolled Single  Precision 32698 Kflops ; 10 Reps 
+lucid@lucid-desktop:~/Documents$ gcc -DDP -DUNROLL -mtune=cortex-a8 -mfpu=neon -o linpack_ddp_dunroll linpackc.c -lm
+lucid@lucid-desktop:~/Documents$ ./linpack_ddp_dunroll 
+Unrolled Double Precision Linpack
+
+Unrolled Double Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.7        7.41628980e-14  2.22044605e-16 -1.49880108e-14 -1.89848137e-14
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+ times for array with leading dimension of 200
+       0.02       0.01       0.03      22889       0.09       0.54
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+Unrolled Double  Precision 34333 Kflops ; 10 Reps 
+lucid@lucid-desktop:~/Documents$ gcc -DDP -DROLL -mtune=cortex-a8 -mfpu=neon -o linpack_ddp_droll linpackc.c -lm
+lucid@lucid-desktop:~/Documents$ ./linpack_ddp_droll 
+Rolled Double Precision Linpack
+
+Rolled Double Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.7        7.41628980e-14  2.22044605e-16 -1.49880108e-14 -1.89848137e-14
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      32698       0.06       0.37
+ times for array with leading dimension of 200
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      38148       0.05       0.32
+Rolled Double  Precision 32698 Kflops ; 10 Reps 
+lucid@lucid-desktop:~/Documents$
+
+}}}
