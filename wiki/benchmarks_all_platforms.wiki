@@ -135,3 +135,12 @@ Rolled Double  Precision 32698 Kflops ; 10 Reps
 lucid@lucid-desktop:~/Documents$
 
 }}}
+
+Whetstone
+{{{
+lucid@lucid-desktop:~/Documents$ gcc -mtune=cortex-a8 -mfpu=neon -o whetstone whetstone.c -lm
+
+Loops: 100000, Iterations: 1, Duration: 55 sec.
+C Converted Double Precision Whetstones: 181.8 MIPS
+lucid@lucid-desktop:~/Documents$ 
+}}}
