@@ -74,3 +74,43 @@ xbmc@atom:~/Documents/boinc/boinc/client$ 14-Sep-2011 08:56:34 [---] Starting BO
 
 
 }}}
+
+==On 4xCA9 ==
+{{{
+lucid@lucid-desktop:~/Documents/boinc/client$ ./boinc &
+[1] 28560
+lucid@lucid-desktop:~/Documents/boinc/client$ 15-Sep-2011 02:20:40 [---] Starting BOINC client version 6.13.1 for armv7l-unknown-linux-gnueabi
+15-Sep-2011 02:20:40 [---] This a development version of BOINC and may not function properly
+15-Sep-2011 02:20:40 [---] log flags: file_xfer, sched_ops, task
+15-Sep-2011 02:20:40 [---] Libraries: libcurl/7.19.7 OpenSSL/0.9.8k zlib/1.2.3.3 libidn/1.15
+15-Sep-2011 02:20:40 [---] Data directory: /home/lucid/Documents/boinc/client
+15-Sep-2011 02:20:40 [---] Processor: 4  
+15-Sep-2011 02:20:40 [---] Processor features: 
+15-Sep-2011 02:20:40 [---] OS: Linux: 2.6.38-00545-g06c5d6a-dirty
+15-Sep-2011 02:20:40 [---] Memory: 1.85 GB physical, 0 bytes virtual
+15-Sep-2011 02:20:40 [---] Disk: 3.63 GB total, 1.16 GB free
+15-Sep-2011 02:20:40 [---] Local time is UTC +8 hours
+15-Sep-2011 02:20:40 [---] No usable GPUs found
+15-Sep-2011 02:20:40 [---] No general preferences found - using BOINC defaults
+15-Sep-2011 02:20:40 [---] Preferences:
+15-Sep-2011 02:20:40 [---]    max memory usage when active: 948.41MB
+15-Sep-2011 02:20:40 [---]    max memory usage when idle: 1707.15MB
+15-Sep-2011 02:20:40 [---]    max disk usage: 1.07GB
+15-Sep-2011 02:20:40 [---]    don't use GPU while active
+15-Sep-2011 02:20:40 [---]    suspend work if non-BOINC CPU load exceeds 25 %
+15-Sep-2011 02:20:40 [---]    (to change preferences, visit the web site of an attached project, or select Preferences in the Manager)
+15-Sep-2011 02:20:40 [---] Not using a proxy
+15-Sep-2011 02:20:40 [---] This computer is not attached to any projects
+15-Sep-2011 02:20:40 [---] Visit http://boinc.berkeley.edu for instructions
+Initialization completed
+
+lucid@lucid-desktop:~/Documents/boinc/client$ ./boinccmd --run_benchmarks
+15-Sep-2011 02:21:05 [---] Running CPU benchmarks
+lucid@lucid-desktop:~/Documents/boinc/client$ 15-Sep-2011 02:21:06 [---] Suspending computation - CPU benchmarks in progress
+15-Sep-2011 02:21:37 [---] Benchmark results:
+15-Sep-2011 02:21:37 [---]    Number of CPUs: 4
+15-Sep-2011 02:21:37 [---]    608 floating point MIPS (Whetstone) per CPU
+15-Sep-2011 02:21:37 [---]    1914 integer MIPS (Dhrystone) per CPU
+15-Sep-2011 02:21:38 [---] Resuming computation
+
+}}}
