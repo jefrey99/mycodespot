@@ -42,3 +42,35 @@ user41@ca9-natty:~/boinc/client$ 13-Sep-2011 23:12:41 [---] Suspending computati
 13-Sep-2011 23:13:13 [---] Resuming computation
 
 }}}
+
+
+== On Atom 4 ==
+
+{{{
+xbmc@atom:~/Documents/boinc/boinc/client$ ./boinc &
+[1] 3653
+xbmc@atom:~/Documents/boinc/boinc/client$ 14-Sep-2011 08:56:34 [---] Starting BOINC client version 6.13.0 for i686-pc-linux-gnu
+14-Sep-2011 08:56:34 [---] This a development version of BOINC and may not function properly
+14-Sep-2011 08:56:34 [---] log flags: file_xfer, sched_ops, task
+14-Sep-2011 08:56:34 [---] Libraries: libcurl/7.21.0 OpenSSL/0.9.8o zlib/1.2.3.4 libidn/1.18
+14-Sep-2011 08:56:34 [---] Data directory: /home/xbmc/Documents/boinc/boinc/client
+14-Sep-2011 08:56:34 [---] Processor: 4 GenuineIntel Intel(R) Atom(TM) CPU D525   @ 1.80GHz [Family 6 Model 28 Stepping 10]
+14-Sep-2011 08:56:34 [---] Processor: 512.00 KB cache
+14-Sep-2011 08:56:34 [---] Processor features: fpu vme de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx lm constant_tsc arch_perfmon pebs bts aperfmperf pni dtes64 monitor ds_cpl tm2 ssse3 cx16 xtpr pdcm movbe lahf_lm
+14-Sep-2011 08:56:34 [---] OS: Linux: 2.6.35-22-generic
+14-Sep-2011 08:56:34 [---] Memory: 1.96 GB physical, 5.86 GB virtual
+14-Sep-2011 08:56:34 [---] Disk: 911.13 GB total, 734.77 GB free
+14-Sep-2011 08:56:34 [---] Local time is UTC -5 hours
+14-Sep-2011 08:56:34 [---] NVIDIA GPU 0: ION (driver version unknown, CUDA version 3020, compute capability 1.2, 511MB, 39 GFLOPS peak)
+14-Sep-2011 08:56:34 [---] No usable GPUs found
+14-Sep-2011 08:56:34 [---] No general preferences found - using BOINC defaults
+14-Sep-2011 08:56:34 [---] Preferences:
+14-Sep-2011 08:56:34 [---]    max memory usage when active: 1005.55MB
+14-Sep-2011 08:56:34 [---]    max memory usage when idle: 1809.98MB
+14-Sep-2011 08:56:34 [---]    max disk usage: 10.00GB
+14-Sep-2011 08:56:34 [---]    don't use GPU while active
+14-Sep-2011 08:56:34 [---]    suspend work if non-BOINC CPU load exceeds 25 %
+14-Sep-2011 08:56:34 [---]    (to change preferences, visit the web site of an attached project, or select Preferences in the Manager)
+
+
+}}}
