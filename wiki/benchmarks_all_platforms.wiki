@@ -298,6 +298,353 @@ Dhrystones per Second:                         1168224
 lucid@lucid-desktop:~/Documents$
 }}}
 
+
+
+
+==4x CA9 Versatile ==
+
+=== stream versatile===
+
+{{{
+user41@ca9-natty:~$ gcc -fopenmp -mtune=cortex-a9 -mfpu=neon -o stream stream.c
+user41@ca9-natty:~$ ./stream 
+-------------------------------------------------------------
+STREAM version $Revision: 5.9 $
+-------------------------------------------------------------
+This system uses 8 bytes per DOUBLE PRECISION word.
+-------------------------------------------------------------
+Array size = 2000000, Offset = 0
+Total memory required = 45.8 MB.
+Each test is run 10 times, but only
+the *best* time for each is used.
+-------------------------------------------------------------
+Number of Threads requested = 4
+-------------------------------------------------------------
+Printing one line per active thread....
+Printing one line per active thread....
+Printing one line per active thread....
+Printing one line per active thread....
+-------------------------------------------------------------
+Your clock granularity/precision appears to be 3 microseconds.
+Each test below will take on the order of 94007 microseconds.
+   (= 31335 clock ticks)
+Increase the size of the arrays if this shows that
+you are not getting at least 20 clock ticks per test.
+-------------------------------------------------------------
+WARNING -- The above is only a rough guideline.
+For best results, please be sure you know the
+precision of your system timer.
+-------------------------------------------------------------
+Function      Rate (MB/s)   Avg time     Min time     Max time
+Copy:         356.8956       0.0897       0.0897       0.0899
+Scale:        375.8653       0.0854       0.0851       0.0865
+Add:          379.1383       0.1267       0.1266       0.1271
+Triad:        331.7666       0.1447       0.1447       0.1448
+-------------------------------------------------------------
+Solution Validates
+-------------------------------------------------------------
+user41@ca9-natty:~$ 
+
+}}}
+
+=== linpack versatile ===
+
+{{{
+
+user41@ca9-natty:~$ gcc -DSP -DROLL -mtune=cortex-a9 -mfpu=neon -o linpack_dsp_droll linpackc.c -lm
+user41@ca9-natty:~$ ./linpack_dsp_droll 
+Rolled Single Precision Linpack
+
+Rolled Single Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.6        3.80277634e-05  1.19209290e-07 -1.38282776e-05 -7.51018524e-06
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      32698       0.06       0.38
+ times for array with leading dimension of 200
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      32698       0.06       0.37
+Rolled Single  Precision 32698 Kflops ; 10 Reps 
+
+user41@ca9-natty:~$ gcc -DSP -DROLL -mtune=cortex-a9 -mfpu=neon -o linpack_dsp_droll linpackc.c -lm
+user41@ca9-natty:~$ ./linpack_dsp_droll Rolled Single Precision Linpack
+
+Rolled Single Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.6        3.80277634e-05  1.19209290e-07 -1.38282776e-05 -7.51018524e-06
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.01       0.00       0.01      68667       0.03       0.18
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      32698       0.06       0.38
+ times for array with leading dimension of 200
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      29855       0.07       0.41
+Rolled Single  Precision 29855 Kflops ; 10 Reps 
+user41@ca9-natty:~$ ./linpack_dsp_droll 
+Rolled Single Precision Linpack
+
+Rolled Single Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.6        3.80277634e-05  1.19209290e-07 -1.38282776e-05 -7.51018524e-06
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      32698       0.06       0.37
+ times for array with leading dimension of 200
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      32698       0.06       0.38
+Rolled Single  Precision 32698 Kflops ; 10 Reps 
+user41@ca9-natty:~$ gcc -DSP -DUNROLL -mtune=cortex-a9 -mfpu=neon -o linpack_dsp_dunroll linpackc.c -lm
+user41@ca9-natty:~$ ./linpack_dsp_dunroll 
+Unrolled Single Precision Linpack
+
+Unrolled Single Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.6        3.80277634e-05  1.19209290e-07 -1.38282776e-05 -7.51018524e-06
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.01       0.00       0.01      68667       0.03       0.18
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      40392       0.05       0.30
+ times for array with leading dimension of 200
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      40392       0.05       0.30
+Unrolled Single  Precision 40392 Kflops ; 10 Reps 
+user41@ca9-natty:~$ gcc -DDP -DUNROLL -mtune=cortex-a9 -mfpu=neon -o linpack_ddp_dunroll linpackc.c -lm
+user41@ca9-natty:~$ ./linpack_ddp_dunroll
+Unrolled Double Precision Linpack
+
+Unrolled Double Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.7        7.41628980e-14  2.22044605e-16 -1.49880108e-14 -1.89848137e-14
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.01       0.00       0.01      68667       0.03       0.18
+       0.01       0.00       0.01      68667       0.03       0.18
+       0.02       0.00       0.02      42917       0.05       0.29
+ times for array with leading dimension of 200
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.01       0.00       0.02      42917       0.05       0.29
+Unrolled Double  Precision 42917 Kflops ; 10 Reps 
+user41@ca9-natty:~$ gcc -DDP -DROLL -mtune=cortex-a9 -mfpu=neon -o linpack_ddp_droll linpackc.c -lm
+user41@ca9-natty:~$ ./linpack_ddp_droll
+Rolled Double Precision Linpack
+
+Rolled Double Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.7        7.41628980e-14  2.22044605e-16 -1.49880108e-14 -1.89848137e-14
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.01       0.00       0.01      68667       0.03       0.18
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      31212       0.06       0.39
+ times for array with leading dimension of 200
+       0.01       0.00       0.01      68667       0.03       0.18
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      34333       0.06       0.36
+       0.02       0.00       0.02      32698       0.06       0.37
+Rolled Double  Precision 31212 Kflops ; 10 Reps 
+user41@ca9-natty:~$ 
+
+
+}}}
+
+=== whetstone versatile ===
+
+{{{
+user41@ca9-natty:~$ gcc -mtune=cortex-a9 -mfpu=neon -o whetstone whetstone.c -lmuser41@ca9-natty:~$ ./whetstone 10000
+
+Loops: 10000, Iterations: 1, Duration: 4 sec.
+C Converted Double Precision Whetstones: 250.0 MIPS
+user41@ca9-natty:~$ ./whetstone 100000
+
+Loops: 100000, Iterations: 1, Duration: 41 sec.
+C Converted Double Precision Whetstones: 243.9 MIPS
+
+
+}}}
+
+=== dhrystone versatile ===
+{{{
+user41@ca9-natty:~$ gcc -mtune=cortex-a9 -mfpu=neon -o dry1.o -c dry.c
+dry.c:503:18: warning: conflicting types for built-in function ‘malloc’
+dry.c: In function ‘main’:
+dry.c:549:6: warning: incompatible implicit declaration of built-in function ‘exit’
+dry.c:572:3: warning: incompatible implicit declaration of built-in function ‘strcpy’
+user41@ca9-natty:~$ gcc -mtune=cortex-a9 -mfpu=neon -DPASS2 dry.c dry1.o -o dry2user41@ca9-natty:~$ ./dry2 
+
+Dhrystone Benchmark, Version C, Version 2.2
+Program compiled without 'register' attribute
+Using times(), HZ=100
+
+Trying 50000 runs through Dhrystone:
+Measured time too small to obtain meaningful results
+
+Trying 500000 runs through Dhrystone:
+Measured time too small to obtain meaningful results
+
+Trying 5000000 runs through Dhrystone:
+Final values of the variables used in the benchmark:
+
+Int_Glob:            5
+        should be:   5
+Bool_Glob:           1
+        should be:   1
+Ch_1_Glob:           A
+        should be:   A
+Ch_2_Glob:           B
+        should be:   B
+Arr_1_Glob[8]:       7
+        should be:   7
+Arr_2_Glob[8][7]:    5550010
+        should be:   Number_Of_Runs + 10
+Ptr_Glob->
+  Ptr_Comp:          90120
+        should be:   (implementation-dependent)
+  Discr:             0
+        should be:   0
+  Enum_Comp:         2
+        should be:   2
+  Int_Comp:          17
+        should be:   17
+  Str_Comp:          DHRYSTONE PROGRAM, SOME STRING
+        should be:   DHRYSTONE PROGRAM, SOME STRING
+Next_Ptr_Glob->
+  Ptr_Comp:          90120
+        should be:   (implementation-dependent), same as above
+  Discr:             0
+        should be:   0
+  Enum_Comp:         1
+        should be:   1
+  Int_Comp:          18
+        should be:   18
+  Str_Comp:          DHRYSTONE PROGRAM, SOME STRING
+        should be:   DHRYSTONE PROGRAM, SOME STRING
+Int_1_Loc:           5
+        should be:   5
+Int_2_Loc:           13
+        should be:   13
+Int_3_Loc:           7
+        should be:   7
+Enum_Loc:            1
+        should be:   1
+Str_1_Loc:           DHRYSTONE PROGRAM, 1'ST STRING
+        should be:   DHRYSTONE PROGRAM, 1'ST STRING
+Str_2_Loc:           DHRYSTONE PROGRAM, 2'ND STRING
+        should be:   DHRYSTONE PROGRAM, 2'ND STRING
+
+Microseconds for one run through Dhrystone:        1.7 
+Dhrystones per Second:                          585480 
+
+user41@ca9-natty:~$ gcc -mtune=cortex-a9 -mfpu=neon -DREG -o dry2.o -c dry.c
+dry.c:503:18: warning: conflicting types for built-in function ‘malloc’
+dry.c: In function ‘main’:
+dry.c:549:6: warning: incompatible implicit declaration of built-in function ‘exit’
+dry.c:572:3: warning: incompatible implicit declaration of built-in function ‘strcpy’
+user41@ca9-natty:~$ gcc -mtune=cortex-a9 -mfpu=neon -DPASS2 -DREG dry.c dry2.o -o dry2nr
+user41@ca9-natty:~$ ./dry2nr
+
+Dhrystone Benchmark, Version C, Version 2.2
+Program compiled with 'register' attribute
+Using times(), HZ=100
+
+Trying 50000 runs through Dhrystone:
+Measured time too small to obtain meaningful results
+
+Trying 500000 runs through Dhrystone:
+Measured time too small to obtain meaningful results
+
+Trying 5000000 runs through Dhrystone:
+Final values of the variables used in the benchmark:
+
+Int_Glob:            5
+        should be:   5
+Bool_Glob:           1
+        should be:   1
+Ch_1_Glob:           A
+        should be:   A
+Ch_2_Glob:           B
+        should be:   B
+Arr_1_Glob[8]:       7
+        should be:   7
+Arr_2_Glob[8][7]:    5550010
+        should be:   Number_Of_Runs + 10
+Ptr_Glob->
+  Ptr_Comp:          90120
+        should be:   (implementation-dependent)
+  Discr:             0
+        should be:   0
+  Enum_Comp:         2
+        should be:   2
+  Int_Comp:          17
+        should be:   17
+  Str_Comp:          DHRYSTONE PROGRAM, SOME STRING
+        should be:   DHRYSTONE PROGRAM, SOME STRING
+Next_Ptr_Glob->
+  Ptr_Comp:          90120
+        should be:   (implementation-dependent), same as above
+  Discr:             0
+        should be:   0
+  Enum_Comp:         1
+        should be:   1
+  Int_Comp:          18
+        should be:   18
+  Str_Comp:          DHRYSTONE PROGRAM, SOME STRING
+        should be:   DHRYSTONE PROGRAM, SOME STRING
+Int_1_Loc:           5
+        should be:   5
+Int_2_Loc:           13
+        should be:   13
+Int_3_Loc:           7
+        should be:   7
+Enum_Loc:            1
+        should be:   1
+Str_1_Loc:           DHRYSTONE PROGRAM, 1'ST STRING
+        should be:   DHRYSTONE PROGRAM, 1'ST STRING
+Str_2_Loc:           DHRYSTONE PROGRAM, 2'ND STRING
+        should be:   DHRYSTONE PROGRAM, 2'ND STRING
+
+Microseconds for one run through Dhrystone:        1.4 
+Dhrystones per Second:                          712251 
+
+user41@ca9-natty:~$ 
+
+
+}}}
+
+
 == 4xCA9 @1GHz ==
 
 {{{
