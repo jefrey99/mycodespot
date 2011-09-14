@@ -4,7 +4,7 @@
 
 <wiki:toc max_depth="2" />
 
-== i.MX53 ==
+== i.MX53 - Cortex-A8==
 Stream
 {{{
 lucid@lucid-desktop:~/Documents$ gcc -fopenmp -mtune=cortex-a8 -mfpu=neon -o stream stream.c 
@@ -46,7 +46,7 @@ Solution Validates
 -------------------------------------------------------------
 lucid@lucid-desktop:~/Documents$ 
 }}}
-Linpack
+===Linpack===
 {{{
 lucid@lucid-desktop:~/Documents$ gcc -DSP -DROLL -mtune=cortex-a8 -mfpu=neon -o linpack_dsp_droll linpackc.c -lm
 lucid@lucid-desktop:~/Documents$ ./linpack_dsp_droll 
@@ -136,7 +136,7 @@ lucid@lucid-desktop:~/Documents$
 
 }}}
 
-Whetstone
+===Whetstone===
 {{{
 lucid@lucid-desktop:~/Documents$ gcc -mtune=cortex-a8 -mfpu=neon -o whetstone whetstone.c -lm
 
@@ -145,7 +145,7 @@ C Converted Double Precision Whetstones: 181.8 MIPS
 lucid@lucid-desktop:~/Documents$ 
 }}}
 
-Dhrystone
+===Dhrystone===
 {{{
 lucid@lucid-desktop:~/Documents$ gcc -mtune=cortex-a8 -mfpu=neon -o dry1.o -c dry.c
 dry.c:503: warning: conflicting types for built-in function ‘malloc’
@@ -305,7 +305,7 @@ mw 0x020c8140 0x007C3E1F   --- command to raise the core voltage
 clk core 1008   --- increase the core frequency
 }}}
 
-stream
+===stream===
 {{{
 lucid@lucid-desktop:~/Documents$ gcc -fopenmp -mtune=cortex-a9 -mfpu=neon -o stream stream.c
 lucid@lucid-desktop:~/Documents$ ./stream 
@@ -347,7 +347,7 @@ Solution Validates
 lucid@lucid-desktop:~/Documents$ 
 }}}
 
-linpack
+===linpack===
 
 {{{
 lucid@lucid-desktop:~/Documents$ gcc -DSP -DROLL -mtune=cortex-a9 -mfpu=neon -o linpack_dsp_droll linpackc.c -lm
@@ -438,7 +438,7 @@ Rolled Double  Precision 52821 Kflops ; 10 Reps
 lucid@lucid-desktop:~/Documents$
 }}}
 
-whetstone
+===whetstone===
 
 {{{
 lucid@lucid-desktop:~/Documents$ gcc -mtune=cortex-a9 -mfpu=neon -o whetstone whetstone.c -lm
@@ -448,7 +448,7 @@ Loops: 10000, Iterations: 1, Duration: 2 sec.
 C Converted Double Precision Whetstones: 500.0 MIPS
 
 }}}
-dhrystone
+===dhrystone===
 {{{
 lucid@lucid-desktop:~/Documents$ gcc -mtune=cortex-a9 -mfpu=neon -o dry1.o -c dry.c
 dry.c:503: warning: conflicting types for built-in function ‘malloc’
@@ -597,9 +597,10 @@ lucid@lucid-desktop:~/Documents$
 
 }}}
 
-== core i3 ==
-
+== Intel Core i3 330M==
+===stream===
 {{{
+
 jeff@east:~/boinc$ gcc -fopenmp -mtune=core2 -o stream stream.c
 jeff@east:~/boinc$ ./stream 
 -------------------------------------------------------------
@@ -640,7 +641,7 @@ Solution Validates
 jeff@east:~/boinc$ 
 }}}
 
-linpack
+===linpack===
 
 {{{
 jeff@east:~/boinc$ gcc -DSP -DROLL -mtune=core2 -o linpack_dsp_droll linpackc.c -lm
@@ -730,7 +731,7 @@ Rolled Double  Precision 214570 Kflops ; 10 Reps
 jeff@east:~/boinc$ 
 
 }}}
-whetstone
+===whetstone===
 {{{
 jeff@east:~/boinc$ gcc -mtune=core2 -o whetstone whetstone.c -lm
 jeff@east:~/boinc$ ./whetstone 10000
@@ -745,7 +746,7 @@ jeff@east:~/boinc$
 
 }}}
 
-dhrystone
+===dhrystone===
 
 {{{
 jeff@east:~/boinc$ gcc -mtune=core2 -o dry1.o -c dry.c
@@ -904,6 +905,7 @@ jeff@east:~/boinc$
 }}}
 
 == OMAP4430 Pandaboard ==
+===stream===
 {{{
 
 jeff@CortexA9x2:~/stuff$ gcc -fopenmp -mtune=cortex-a9 -mfpu=neon -o stream stream.c
@@ -943,7 +945,7 @@ Solution Validates
 -------------------------------------------------------------
 jeff@CortexA9x2:~/stuff$ 
 }}}
-linpack
+===linpack===
 {{{
 jeff@CortexA9x2:~/stuff$ gcc -DSP -DROLL -mtune=cortex-a9 -mfpu=neon -o linpack_dsp_droll linpackc.c -lm
 jeff@CortexA9x2:~/stuff$ ./linpack_dsp_droll 
@@ -1031,7 +1033,7 @@ Rolled Double Precision Linpack
 Rolled Double  Precision 62780 Kflops ; 10 Reps 
 jeff@CortexA9x2:~/stuff$
 }}}
-whetstone
+===whetstone===
 {{{
 jeff@CortexA9x2:~/stuff$ gcc -mtune=cortex-a9 -mfpu=neon -o whetstone whetstone.c -lm
 jeff@CortexA9x2:~/stuff$ ./whetstone 10000
@@ -1060,7 +1062,7 @@ Loops: 100000, Iterations: 1, Duration: 21 sec.
 C Converted Double Precision Whetstones: 476.2 MIPS
 jeff@CortexA9x2:~/stuff$ 
 }}}
-dhrystone
+===dhrystone===
 {{{
 jeff@CortexA9x2:~/stuff$ gcc -mtune=cortex-a9 -mfpu=neon -o dry1.o -c dry.c
 dry.c:503: warning: conflicting types for built-in function ‘malloc’
@@ -1211,7 +1213,7 @@ jeff@CortexA9x2:~/stuff$
 }}}
 
 == Atom ==
-
+===stream===
 {{{
 xbmc@atom:~/Documents/test$ gcc -fopenmp -mtune=atom -o stream stream.c
 xbmc@atom:~/Documents/test$ ./stream 
@@ -1252,7 +1254,7 @@ Solution Validates
 -------------------------------------------------------------
 xbmc@atom:~/Documents/test$
 }}}
-linpack
+===linpack===
 {{{
 xbmc@atom:~/Documents/test$ gcc -DSP -DROLL -mtune=atom -o linpack_dsp_droll linpackc.c -lm
 xbmc@atom:~/Documents/test$ ./linpack_dsp_droll
@@ -1345,7 +1347,7 @@ Rolled Double Precision Linpack
 Rolled Double  Precision 90345 Kflops ; 10 Reps 
 xbmc@atom:~/Documents/test$
 }}}
-whetstone
+===whetstone===
 {{{
 xbmc@atom:~/Documents/test$ gcc -mtune=atom -o whetstone whetstone.c -lm
 xbmc@atom:~/Documents/test$ ./whetstone 100000
@@ -1358,7 +1360,7 @@ Loops: 100000, Iterations: 1, Duration: 21 sec.
 C Converted Double Precision Whetstones: 476.2 MIPS
 
 }}}
-dhrystone
+===dhrystone===
 
 {{{
 xbmc@atom:~/Documents/test$ gcc -mtune=atom -o dry1.o -c dry.c
