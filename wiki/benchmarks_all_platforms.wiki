@@ -1,8 +1,8 @@
 #summary running benchmarks on all platforms
 
-= Introduction =
+= Benchmark results =
 
-
+<wiki:toc max_depth="2" />
 
 == i.MX53 ==
 Stream
@@ -298,7 +298,7 @@ Dhrystones per Second:                         1168224
 lucid@lucid-desktop:~/Documents$
 }}}
 
-4xCA9 @1GHz
+== 4xCA9 @1GHz ==
 
 {{{
 mw 0x020c8140 0x007C3E1F   --- command to raise the core voltage
