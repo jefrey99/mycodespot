@@ -1,0 +1,44 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+== BOINC report on versatile ==
+{{{
+user41@ca9-natty:~/boinc/client$ ./boinc &
+[1] 3848
+user41@ca9-natty:~/boinc/client$ 13-Sep-2011 23:10:02 [---] Starting BOINC client version 6.13.0 for armv7l-unknown-linux-gnueabi
+13-Sep-2011 23:10:02 [---] This a development version of BOINC and may not function properly
+13-Sep-2011 23:10:02 [---] log flags: file_xfer, sched_ops, task
+13-Sep-2011 23:10:02 [---] Libraries: libcurl/7.21.3 OpenSSL/0.9.8o zlib/1.2.3.4 libidn/1.18
+13-Sep-2011 23:10:02 [---] Data directory: /home/user41/boinc/client
+getaddrinfo: Success
+13-Sep-2011 23:10:02 [---] Processor: 4  
+13-Sep-2011 23:10:02 [---] Processor features: 
+13-Sep-2011 23:10:02 [---] OS: Linux: 3.1.0-rc1-07755-g461bf77-dirty
+13-Sep-2011 23:10:02 [---] Memory: 1010.67 MB physical, 0 bytes virtual
+13-Sep-2011 23:10:02 [---] Disk: 90.48 GB total, 30.42 GB free
+13-Sep-2011 23:10:02 [---] Local time is UTC -7 hours
+13-Sep-2011 23:10:02 [---] No usable GPUs found
+13-Sep-2011 23:10:02 [---] No general preferences found - using BOINC defaults
+13-Sep-2011 23:10:02 [---] Preferences:
+13-Sep-2011 23:10:02 [---]    max memory usage when active: 505.34MB
+13-Sep-2011 23:10:02 [---]    max memory usage when idle: 909.60MB
+13-Sep-2011 23:10:02 [---]    max disk usage: 10.00GB
+13-Sep-2011 23:10:02 [---]    don't use GPU while active
+13-Sep-2011 23:10:02 [---]    suspend work if non-BOINC CPU load exceeds 25 %
+13-Sep-2011 23:10:02 [---]    (to change preferences, visit the web site of an attached project, or select Preferences in the Manager)
+13-Sep-2011 23:10:02 [---] Not using a proxy
+13-Sep-2011 23:10:02 [---] This computer is not attached to any projects
+13-Sep-2011 23:10:02 [---] Visit http://boinc.berkeley.edu for instructions
+Initialization completed
+
+user41@ca9-natty:~/boinc/client$ ./boinccmd --run_benchmarks
+13-Sep-2011 23:12:40 [---] Running CPU benchmarks
+user41@ca9-natty:~/boinc/client$ 13-Sep-2011 23:12:41 [---] Suspending computation - CPU benchmarks in progress
+13-Sep-2011 23:13:12 [---] Benchmark results:
+13-Sep-2011 23:13:12 [---]    Number of CPUs: 4
+13-Sep-2011 23:13:12 [---]    335 floating point MIPS (Whetstone) per CPU
+13-Sep-2011 23:13:12 [---]    1071 integer MIPS (Dhrystone) per CPU
+13-Sep-2011 23:13:13 [---] Resuming computation
+
+}}}
