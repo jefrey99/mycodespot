@@ -114,3 +114,47 @@ lucid@lucid-desktop:~/Documents/boinc/client$ 15-Sep-2011 02:21:06 [---] Suspend
 15-Sep-2011 02:21:38 [---] Resuming computation
 
 }}}
+
+== On Core i3 notebook ==
+{{{
+jeff@east:~/stuff/boinc/client$ ./boinc &
+[1] 2778
+jeff@east:~/stuff/boinc/client$ 14-Sep-2011 15:31:21 [---] Starting BOINC client version 6.13.0 for i686-pc-linux-gnu
+14-Sep-2011 15:31:21 [---] This a development version of BOINC and may not function properly
+14-Sep-2011 15:31:21 [---] log flags: file_xfer, sched_ops, task
+14-Sep-2011 15:31:21 [---] Libraries: libcurl/7.21.0 OpenSSL/0.9.8o zlib/1.2.3.4 libidn/1.18
+14-Sep-2011 15:31:21 [---] Data directory: /home/jeff/stuff/boinc/client
+14-Sep-2011 15:31:21 [---] Processor: 4 GenuineIntel Intel(R) Core(TM) i3 CPU       M 330  @ 2.13GHz [Family 6 Model 37 Stepping 2]
+14-Sep-2011 15:31:21 [---] Processor: 3.00 MB cache
+14-Sep-2011 15:31:21 [---] Processor features: fpu vme de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16
+14-Sep-2011 15:31:21 [---] OS: Linux: 2.6.35-22-generic
+14-Sep-2011 15:31:21 [---] Memory: 2.63 GB physical, 4.01 GB virtual
+14-Sep-2011 15:31:21 [---] Disk: 92.17 GB total, 9.12 GB free
+14-Sep-2011 15:31:21 [---] Local time is UTC -5 hours
+14-Sep-2011 15:31:21 [---] No usable GPUs found
+14-Sep-2011 15:31:21 [---] No general preferences found - using BOINC defaults
+14-Sep-2011 15:31:21 [---] Preferences:
+14-Sep-2011 15:31:21 [---]    max memory usage when active: 1347.47MB
+14-Sep-2011 15:31:21 [---]    max memory usage when idle: 2425.45MB
+14-Sep-2011 15:31:21 [---]    max disk usage: 9.05GB
+14-Sep-2011 15:31:21 [---]    don't use GPU while active
+14-Sep-2011 15:31:21 [---]    suspend work if non-BOINC CPU load exceeds 25 %
+14-Sep-2011 15:31:21 [---]    (to change preferences, visit the web site of an attached project, or select Preferences in the Manager)
+
+jeff@east:~/stuff/boinc/client$ ./14-Sep-2011 15:31:21 [---] Not using a proxy
+14-Sep-2011 15:31:21 [---] This computer is not attached to any projects
+14-Sep-2011 15:31:21 [---] Visit http://boinc.berkeley.edu for instructions
+Initialization completed
+
+bash: ./: is a directory
+jeff@east:~/stuff/boinc/client$ ./boinccmd --run_benchmarks
+14-Sep-2011 15:31:37 [---] Running CPU benchmarks
+jeff@east:~/stuff/boinc/client$ 14-Sep-2011 15:31:38 [---] Suspending computation - CPU benchmarks in progress
+14-Sep-2011 15:32:09 [---] Benchmark results:
+14-Sep-2011 15:32:09 [---]    Number of CPUs: 4
+14-Sep-2011 15:32:09 [---]    1512 floating point MIPS (Whetstone) per CPU
+14-Sep-2011 15:32:09 [---]    3543 integer MIPS (Dhrystone) per CPU
+14-Sep-2011 15:32:10 [---] Resuming computation
+
+
+}}}
