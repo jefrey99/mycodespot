@@ -1209,3 +1209,139 @@ Dhrystones per Second:                         1440922
 
 jeff@CortexA9x2:~/stuff$
 }}}
+
+== Atom ==
+
+{{{
+xbmc@atom:~/Documents/test$ gcc -fopenmp -mtune=atom -o stream stream.c
+xbmc@atom:~/Documents/test$ ./stream 
+-------------------------------------------------------------
+STREAM version $Revision: 5.9 $
+-------------------------------------------------------------
+This system uses 8 bytes per DOUBLE PRECISION word.
+-------------------------------------------------------------
+Array size = 2000000, Offset = 0
+Total memory required = 45.8 MB.
+Each test is run 10 times, but only
+the *best* time for each is used.
+-------------------------------------------------------------
+Number of Threads requested = 4
+-------------------------------------------------------------
+Printing one line per active thread....
+Printing one line per active thread....
+Printing one line per active thread....
+Printing one line per active thread....
+-------------------------------------------------------------
+Your clock granularity/precision appears to be 1 microseconds.
+Each test below will take on the order of 8820 microseconds.
+   (= 8820 clock ticks)
+Increase the size of the arrays if this shows that
+you are not getting at least 20 clock ticks per test.
+-------------------------------------------------------------
+WARNING -- The above is only a rough guideline.
+For best results, please be sure you know the
+precision of your system timer.
+-------------------------------------------------------------
+Function      Rate (MB/s)   Avg time     Min time     Max time
+Copy:        2582.3103       0.0124       0.0124       0.0126
+Scale:       2563.9163       0.0126       0.0125       0.0131
+Add:         2910.8530       0.0165       0.0165       0.0167
+Triad:       2922.9071       0.0166       0.0164       0.0168
+-------------------------------------------------------------
+Solution Validates
+-------------------------------------------------------------
+xbmc@atom:~/Documents/test$
+}}}
+linpack
+{{{
+xbmc@atom:~/Documents/test$ gcc -DSP -DROLL -mtune=atom -o linpack_dsp_droll linpackc.c -lm
+xbmc@atom:~/Documents/test$ ./linpack_dsp_droll
+Rolled Single Precision Linpack
+
+Rolled Single Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.9        4.52336171e-05  1.19209290e-07 -1.31130219e-05 -1.30534172e-05
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.01       0.00       0.01      95365       0.02       0.13
+ times for array with leading dimension of 200
+       0.01       0.00       0.01      85833       0.02       0.14
+       0.01       0.00       0.01      85823       0.02       0.14
+       0.01       0.00       0.01      85833       0.02       0.14
+       0.01       0.00       0.01     107283       0.02       0.11
+Rolled Single  Precision 95365 Kflops ; 10 Reps 
+
+xbmc@atom:~/Documents/test$ gcc -DSP -DUNROLL -mtune=atom -o linpack_dsp_dunroll linpackc.c -lm
+xbmc@atom:~/Documents/test$ ./linpack_dsp_dunroll
+Unrolled Single Precision Linpack
+
+Unrolled Single Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.9        4.52336171e-05  1.19209290e-07 -1.31130219e-05 -1.30534172e-05
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.01       0.00       0.01      95365       0.02       0.13
+ times for array with leading dimension of 200
+       0.01       0.00       0.01      85833       0.02       0.14
+       0.01       0.00       0.01      85823       0.02       0.14
+       0.01       0.00       0.01      85833       0.02       0.14
+       0.01       0.00       0.01     107283       0.02       0.11
+Unrolled Single  Precision 95365 Kflops ; 10 Reps 
+xbmc@atom:~/Documents/test$
+}}}
+
+{{{
+xbmc@atom:~/Documents/test$ gcc -DDP -DUNROLL -mtune=atom -o linpack_ddp_dunroll linpackc.c -lm
+xbmc@atom:~/Documents/test$ ./linpack_ddp_dunroll
+Unrolled Double Precision Linpack
+
+Unrolled Double Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.9        8.39915160e-14  2.22044605e-16 -6.22835117e-14 -4.16333634e-14
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.01       0.00       0.01     107287       0.02       0.11
+ times for array with leading dimension of 200
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.00       0.00       0.00     171624       0.01       0.07
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.01       0.00       0.01      95364       0.02       0.13
+Unrolled Double  Precision 95364 Kflops ; 10 Reps 
+xbmc@atom:~/Documents/test$ gcc -DDP -DROLL -mtune=atom -o linpack_ddp_droll linpackc.c -lm
+xbmc@atom:~/Documents/test$ ./linpack_ddp_droll
+Rolled Double Precision Linpack
+
+Rolled Double Precision Linpack
+
+     norm. resid      resid           machep         x[0]-1        x[n-1]-1
+       1.9        8.39915160e-14  2.22044605e-16 -6.22835117e-14 -4.16333634e-14
+    times are reported for matrices of order   100
+      dgefa      dgesl      total       kflops     unit      ratio
+ times for array with leading dimension of  201
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.01       0.00       0.01     100974       0.02       0.12
+ times for array with leading dimension of 200
+       0.01       0.00       0.01      85833       0.02       0.14
+       0.00       0.00       0.00     171667       0.01       0.07
+       0.01       0.00       0.01      85833       0.02       0.14
+       0.01       0.00       0.01      90345       0.02       0.14
+Rolled Double  Precision 90345 Kflops ; 10 Reps 
+xbmc@atom:~/Documents/test$
+}}}
