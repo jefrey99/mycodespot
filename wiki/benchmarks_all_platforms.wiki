@@ -297,3 +297,10 @@ Dhrystones per Second:                         1168224
 
 lucid@lucid-desktop:~/Documents$
 }}}
+
+4xCA9
+
+{{{
+mw 0x020c8140 0x007C3E1F   --- command to raise the core voltage
+clk core 1008   --- increase the core frequency
+}}}
