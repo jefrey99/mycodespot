@@ -307,7 +307,7 @@ clk core 1008   --- increase the core frequency
 
 stream
 {{{
-lucid@lucid-desktop:~/Documents$ gcc -fopenmp -mtune=cortex-a8 -mfpu=neon -o stream stream.c
+lucid@lucid-desktop:~/Documents$ gcc -fopenmp -mtune=cortex-a9 -mfpu=neon -o stream stream.c
 lucid@lucid-desktop:~/Documents$ ./stream 
 -------------------------------------------------------------
 STREAM version $Revision: 5.9 $
@@ -327,8 +327,8 @@ Printing one line per active thread....
 Printing one line per active thread....
 -------------------------------------------------------------
 Your clock granularity/precision appears to be 1 microseconds.
-Each test below will take on the order of 23686 microseconds.
-   (= 23686 clock ticks)
+Each test below will take on the order of 23661 microseconds.
+   (= 23661 clock ticks)
 Increase the size of the arrays if this shows that
 you are not getting at least 20 clock ticks per test.
 -------------------------------------------------------------
@@ -337,13 +337,18 @@ For best results, please be sure you know the
 precision of your system timer.
 -------------------------------------------------------------
 Function      Rate (MB/s)   Avg time     Min time     Max time
-Copy:        1322.6940       0.0246       0.0242       0.0253
-Scale:       1255.4390       0.0258       0.0255       0.0265
-Add:         1547.3449       0.0314       0.0310       0.0320
-Triad:       1481.3447       0.0328       0.0324       0.0334
+Copy:        1322.9156       0.0245       0.0242       0.0250
+Scale:       1245.4783       0.0261       0.0257       0.0268
+Add:         1550.1328       0.0312       0.0310       0.0318
+Triad:       1481.9880       0.0329       0.0324       0.0337
 -------------------------------------------------------------
 Solution Validates
 -------------------------------------------------------------
-lucid@lucid-desktop:~/Documents$
+lucid@lucid-desktop:~/Documents$ 
+}}}
+
+linpack
+
+{{{
 
 }}}
