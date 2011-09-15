@@ -200,3 +200,49 @@ lucid@lucid-desktop:~/Documents/boinc/client$ 15-Sep-2011 04:59:58 [---] Suspend
 
 
 }}}
+== OMAP4430 ==
+{{{
+jeff@CortexA9x2:~/Documents/boinc/boinc/client$ 02-Jul-2011 15:07:29 [---] Starting BOINC client version 6.13.0 for armv7l-unknown-linux-gnueabi
+02-Jul-2011 15:07:29 [---] This a development version of BOINC and may not function properly
+02-Jul-2011 15:07:29 [---] log flags: file_xfer, sched_ops, task
+02-Jul-2011 15:07:29 [---] Libraries: libcurl/7.21.0 OpenSSL/0.9.8o zlib/1.2.3.4 libidn/1.18
+02-Jul-2011 15:07:29 [---] Data directory: /home/jeff/Documents/boinc/boinc/client
+02-Jul-2011 15:07:29 [---] Processor: 2  
+02-Jul-2011 15:07:29 [---] Processor features: 
+02-Jul-2011 15:07:29 [---] OS: Linux: 2.6.35-903-omap4
+02-Jul-2011 15:07:29 [---] Memory: 665.86 MB physical, 512.00 MB virtual
+02-Jul-2011 15:07:29 [---] Disk: 7.10 GB total, 2.90 GB free
+02-Jul-2011 15:07:29 [---] Local time is UTC -5 hours
+02-Jul-2011 15:07:29 [---] No usable GPUs found
+02-Jul-2011 15:07:29 [---] No general preferences found - using BOINC defaults
+02-Jul-2011 15:07:29 [---] Preferences:
+02-Jul-2011 15:07:29 [---]    max memory usage when active: 332.93MB
+02-Jul-2011 15:07:29 [---]    max memory usage when idle: 599.28MB
+02-Jul-2011 15:07:29 [---]    max disk usage: 2.80GB
+02-Jul-2011 15:07:29 [---]    don't use GPU while active
+02-Jul-2011 15:07:29 [---]    suspend work if non-BOINC CPU load exceeds 25 %
+02-Jul-2011 15:07:29 [---]    (to change preferences, visit the web site of an attached project, or select Preferences in the Manager)
+02-Jul-2011 15:07:29 [---] Not using a proxy
+02-Jul-2011 15:07:29 [---] This computer is not attached to any projects
+02-Jul-2011 15:07:29 [---] Visit http://boinc.berkeley.edu for instructions
+Initialization completed
+
+jeff@CortexA9x2:~/Documents/boinc/boinc/client$ ./boinccmd --run_benchmarks
+02-Jul-2011 15:07:42 [---] Running CPU benchmarks
+jeff@CortexA9x2:~/Documents/boinc/boinc/client$ 02-Jul-2011 15:07:42 [---] Suspending computation - CPU benchmarks in progress
+02-Jul-2011 15:08:13 [---] Benchmark results:
+02-Jul-2011 15:08:13 [---]    Number of CPUs: 2
+02-Jul-2011 15:08:13 [---]    642 floating point MIPS (Whetstone) per CPU
+02-Jul-2011 15:08:13 [---]    2016 integer MIPS (Dhrystone) per CPU
+02-Jul-2011 15:08:14 [---] Resuming computation
+
+jeff@CortexA9x2:~/Documents/boinc/boinc/client$ ./boinccmd --run_benchmarks
+02-Jul-2011 15:08:33 [---] Running CPU benchmarks
+jeff@CortexA9x2:~/Documents/boinc/boinc/client$ 02-Jul-2011 15:08:34 [---] Suspending computation - CPU benchmarks in progress
+02-Jul-2011 15:09:05 [---] Benchmark results:
+02-Jul-2011 15:09:05 [---]    Number of CPUs: 2
+02-Jul-2011 15:09:05 [---]    642 floating point MIPS (Whetstone) per CPU
+02-Jul-2011 15:09:05 [---]    2009 integer MIPS (Dhrystone) per CPU
+02-Jul-2011 15:09:06 [---] Resuming computation
+
+}}}
