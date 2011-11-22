@@ -10,9 +10,8 @@ first download spec
 $ tar -jxvf cpu2006.v1.1.tar.bz2
 }}}
 
-=== Building the tool set ===
+=== The SPEC Tool Set ===
 
-SPEC does not include ARM binaries, as such they will need to be built. 
 
 || *SPEC Tool* || *Description* ||
 ||specdiff||examines results to see if the correct answer was obtained||
@@ -22,6 +21,9 @@ SPEC does not include ARM binaries, as such they will need to be built.
 ||specmd5sum||md5sum from GNU textutils, with enhancements||
 ||spectar||GNU tar||
 ||specperl||Perl||
+
+=== Building the toolset===
+SPEC does not include ARM binaries, as such they will need to be built. 
 
 {{{
 cd $SPEC/tools/src/
