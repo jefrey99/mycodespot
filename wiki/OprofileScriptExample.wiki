@@ -1,6 +1,6 @@
 #summary Simple example showing usage.
 
-= Script Example 
+= Script Example =
 {{{
 #!/bin/bash
 # iMX53 - ARM Cortex A8 Oprofile Script
