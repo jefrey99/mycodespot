@@ -14,7 +14,7 @@ $ tar -jxvf cpu2006.v1.1.tar.bz2
 
 SPEC does not include ARM binaries, as such they will need to be built. 
 
-||*SPEC Tool*||*Description*||
+|| *SPEC Tool* || *Description* ||
 ||specdiff||examines results to see if the correct answer was obtained||
 ||specinvoke||invokes benchmarks for CPU2006||
 ||specmake||GNU make (Calling it "specmake" avoids possible conflicts with versions of make that may already be on your system. SPEC requires that published results use the versions of the tools that it supplies, so that if SPEC applies patches or extensions from time to time, all users run with a consistent tool set. Similar considerations apply to other tools in this list.)||
