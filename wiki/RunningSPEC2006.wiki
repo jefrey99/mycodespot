@@ -27,6 +27,6 @@ SPEC does not include ARM binaries, as such they will need to be built.
 
 {{{
 cd $SPEC/tools/src/
+$ export CFLAGS="-O2 -mtune=cortex-a9 -mfpu=neon"
 $ ./buildtools
-$ CFLAGS="-O3 -mtune=cortex-a9 -mfpu=neon" ./buildtools
 }}}
