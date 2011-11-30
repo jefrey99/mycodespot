@@ -19,7 +19,9 @@ LAMP is an acronym for a solution stack of free, open source software, originall
 Adding the packages to LTIB is very easy and should build fine without any issues.
 !building_apache_LTIB_cropped.png|align=right,thumbnail!
 # Simply reconfigure the BSP with LTIB to add the packages
-{code}$ ./ltib -c {code}
+{{{
+$ ./ltib -c
+}}}
 # Now add the following packages to the BSP
 
 * httpd (Apache webserver)
