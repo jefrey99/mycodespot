@@ -31,17 +31,22 @@ $ ./ltib -c
 ====Starting/Running the Web Server on your i.MX device====
 
 You simply to need to execute the binary "httpd". Typically, this is done when the system starts up,  you can do this manually from the command line
-{{{$ /usr/sbin/httpd &}}}
+{{{
+$ /usr/sbin/httpd &
+}}}
 
 You can set up the system to do this automatically at start up in one of the rc files.I suggest starting httpd after most other services have started (i.e.: put it in rc.local).
 Edit rc.local and add:
-{{{/usr/sbin/httpd &}}}
+{{{
+/usr/sbin/httpd &
+}}}
 
 
 ====Test you web server====
 
 # Find the ip address on your i.MX device
-{{{$ ifconfig
+{{{
+$ ifconfig
 eth0      Link encap:Ethernet  HWaddr 00:22:19:06:b3:c1
           inet addr:10.81.4.63  Bcast:10.81.7.255  Mask:255.255.252.0
           inet6 addr: fe80::222:19ff:fe06:b3c1/64 Scope:Link
@@ -53,7 +58,9 @@ eth0      Link encap:Ethernet  HWaddr 00:22:19:06:b3:c1
           Interrupt:17
 }}}
 # Now open a browser and point to the ip address
-{{{http://10.81.4.63/}}}
+{{{
+http://10.81.4.63/
+}}}
 
 *You should see the Apache welcome page*
 {note} If you have any issues at this point, remove the proxy setting in your browser or add the i.MX ip address to your exceptions list{note}
@@ -65,38 +72,60 @@ Here we will start with the very basic setup.
 
 If you want to point Apache to serve files located in /home/public_html/ then...
 # On the i.MX target cd into the /user/conf directory
-{{{$ cd /usr/conf}}}
+{{{
+$ cd /usr/conf
+}}}
 # Edit httpd.conf
-{code}$ vi httpd.conf {code}
+{{{
+$ vi httpd.conf
+}}}
 # Change the following lines:
-{{{DocumentRoot "/usr/htdocs"}}}
- to
-{{{DocumentRoot "home/public_html"}}}
+{{{
+DocumentRoot "/usr/htdocs"
+}}}
+to
+{{{
+DocumentRoot "home/public_html"
+}}}
 and
 {{{
-<Directory "/usr/htdocs">}}}
+<Directory "/usr/htdocs">
+}}}
 to
-{{{<Directory "home/public_html">}}}
+{{{
+<Directory "home/public_html">
+}}}
 
 ====Adding a secure socket layer (SSL)====
 
 
 # In ltib built kernel and fs with minimum configuration - no httpd and no openssl. So if the httpd package is selected then you must first remove it and then rebuild
 # Edited httpd spec file to add "--enable-ssl"  to configure arguments
-{code}$ gedit dist/lfs-5.1/httpd/httpd.spec {code}
+{{{
+$ gedit dist/lfs-5.1/httpd/httpd.spec
+}}}
 # Add link in /lib to link libssl.so to libssl.so.0.9.8
-{code}$ cd /lib
-$ ln -s libssl.so.0.9.8 libssl.so{code}
+{{{
+$ cd /lib
+$ ln -s libssl.so.0.9.8 libssl.so
+}}}
 # Extract httpd from package pool
-{code}$  ./ltib -m prep -p httpd {code}
+{{{
+$  ./ltib -m prep -p httpd
+}}}
 # Extract openssl from package pool
-{code}$  ./ltib -m -prep -p openssl {code}
+{{{
+$  ./ltib -m -prep -p openssl
+}}}
+
 # Link /usr/include/openssl
-{code}/home/jeff/fsl/10_05/mx51/ltib/rpm/BUILD/openssl-0.9.8g/include/openssl
+{{{
+/home/jeff/fsl/10_05/mx51/ltib/rpm/BUILD/openssl-0.9.8g/include/openssl
  $ cd /usr/include
- $ ln -s /home/jeff/fsl/10_05/mx51/ltib/rpm/BUILD/openssl-0.9.8g/include/openssl openssl{code}
+ $ ln -s /home/jeff/fsl/10_05/mx51/ltib/rpm/BUILD/openssl-0.9.8g/include/openssl openssl
+}}}
 # Now Patch httpd-2.0.54/modules/ssl/ssl_toolkit_compat.h with the the following patch
-{code}
+{{{
 #ifdef OPENSSL_VERSION_NUMBER
 
 +#if (OPENSSL_VERSION_NUMBER >= 0x0090800fL) #ifndef PEM_F_DEF_CALLBACK
@@ -105,13 +134,21 @@ $ ln -s libssl.so.0.9.8 libssl.so{code}
 /*
  * rsa sslc uses incomplete types for most structures
  * so we macroize for OpenSSL those which cannot be dereferenced
-{code}
+}}}
 {note}This is supposedly fixed in later verstions 2.0.55.{note}
 # Build openssl
-{code}$  ./ltib -m scbuild -p openssl{code}
+{{{
+$  ./ltib -m scbuild -p openssl
+}}}
 # Deploy openssl
-{code}$  ./ltib -m scdeploy -p openssl{code}
+{{{
+$  ./ltib -m scdeploy -p openssl
+}}}
 # Build httpd
-{code}$  ./ltib -m scbuild -p httpd{code}
+{{{
+$  ./ltib -m scbuild -p httpd
+}}}
 # Deploy httpd
-{code}$  ./ltib -m scdeploy -p httpd{code}
+{{{
+$  ./ltib -m scdeploy -p httpd
+}}}
