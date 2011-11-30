@@ -24,9 +24,9 @@ $ ./ltib -c
 }}}
 # Now add the following packages to the BSP
 
-* httpd (Apache webserver)
-* mysql
-* php, python, or perl
+*httpd (Apache webserver)
+*mysql
+*php, python, or perl
 
 ====Starting/Running the Web Server on your i.MX device====
 
