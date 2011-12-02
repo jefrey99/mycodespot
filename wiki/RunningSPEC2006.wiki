@@ -25,7 +25,7 @@ $ tar -jxvf cpu2006.v1.1.tar.bz2
 === Building the toolset===
 SPEC does not include ARM binaries, as such they will need to be built. 
 
-First apply this patch to fix the problem in the tools sources. All other systems where builds were done silently ignored the problem but on my build system it is strict.  This patch should fix it:
+ * First apply this patch to fix the problem in the tools sources. All other systems where builds were done silently ignored the problem but on my build system it is strict.  This patch should fix it:
 {{{
 Index: specinvoke/unix.c
 
@@ -45,9 +45,13 @@ Index: specinvoke/unix.c
 
 }}}
 
-Now build the tools
+ * Now build the tools
 {{{
 $ cd $SPEC/tools/src/
 $ export CFLAGS="-O2 -mtune=cortex-a9 -mfpu=neon"
 $ ./buildtools
 }}}
+
+ * *Notes* 
+  * I had build issues if I forgot to set the current system time / date
+  
