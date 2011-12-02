@@ -1,6 +1,6 @@
 #summary Configuring SPEC 2006 on ARM
 
-= Setup sequence to configure and run SPEC on ARMv7 with NEON=
+== Setup sequence to configure and run SPEC on ARMv7 with NEON==
 
 first download spec
 
