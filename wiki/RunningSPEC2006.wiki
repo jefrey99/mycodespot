@@ -25,6 +25,27 @@ $ tar -jxvf cpu2006.v1.1.tar.bz2
 === Building the toolset===
 SPEC does not include ARM binaries, as such they will need to be built. 
 
+First apply this patch to fix the problem in the tools sources. All other systems where builds were done silently ignored the problem but on my build system it is strict.  This patch should fix it:
+{{{
+Index: specinvoke/unix.c
+}}}
+{{{
+===================================================================
+--- specinvoke/unix.c	(revision 1385)
++++ specinvoke/unix.c	(working copy)
+@@ -124,7 +124,7 @@
+ 		fprintf (stderr, "Can't create zero-length temporary filename\n ");
+ 		specinvoke_exit (1, si);
+ 	      }
+-	      infd = open(tmpfile, O_RDWR|O_CREAT|O_TRUNC);
++	      infd = open(tmpfile, O_RDWR|O_CREAT|O_TRUNC, 0666);
+ 	      if (infd < 0) {
+ 		fprintf (stderr, "Can't create %s for stdin: %s(%d)\n",
+ 			 tmpfile, STRERROR(errno), errno);
+
+
+}}}
+
 {{{
 $ cd $SPEC/tools/src/
 $ export CFLAGS="-O2 -mtune=cortex-a9 -mfpu=neon"
