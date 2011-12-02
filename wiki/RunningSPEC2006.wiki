@@ -45,7 +45,7 @@ Index: specinvoke/unix.c
 
 }}}
  * Run this script 
-The problem in a nutshell is that standard libraries aren't in standard locations, so this tells Perl's Configure to look in the same places that GCC already knows to look.
+  * The problem in a nutshell is that standard libraries aren't in standard locations, so this tells Perl's Configure to look in the same places that GCC already knows to look.
 {{{
 PERLFLAGS=-Uplibpth=
 for i in `gcc -print-search-dirs | grep libraries | cut -f2- -d= | tr ':' '\n' | grep -v /gcc`; do
