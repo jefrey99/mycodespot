@@ -7,8 +7,6 @@ Write a function that swaps MSB with LSB
 {{{
 #include <stdio.h>
 
-//unsigned int swap(int in);
-
 main (){
 unsigned int in = 0x0902ef93;
 
