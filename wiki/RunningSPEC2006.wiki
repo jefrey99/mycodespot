@@ -44,6 +44,22 @@ Index: specinvoke/unix.c
 
 
 }}}
+ * Then this patch
+{{{
+diff -ur orig/tools/src/perl-5.8.8/makedepend.SH t/tools/src/perl-5.8.8/makedepend.SH
+--- orig/tools/src/perl-5.8.8/makedepend.SH     2008-04-03 13:15:08.000000000 -0400
++++ debug/tools/src/perl-5.8.8/makedepend.SH    2011-12-13 17:30:56.000000000 -0500
+@@ -21,7 +21,8 @@
+ echo "Extracting makedepend (with variable substitutions)"
+ rm -f makedepend
+ $spitshell >makedepend <<!GROK!THIS!
+-$startsh
++$startsh -x
++set -x
+ # makedepend.SH
+ #
+ MAKE=$make
+}}}
  * Run this script 
   * The problem in a nutshell is that standard libraries aren't in standard locations, so this tells Perl's Configure to look in the same places that GCC already knows to look. (say setup.sh)
 {{{
