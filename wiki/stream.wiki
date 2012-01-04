@@ -1,6 +1,8 @@
-#summary One-sentence summary of this page.
+#summary Building and Running the STREAM benchmark.
 
-on mx53
+== Building and running STREAM ==
+
+* Notes - On multicore SoC use the -fopenmp flag (like below) to compile the program for multicore memory access. You may need to install the OpenMP librarys. 
 
 {{{
 lucid@lucid-desktop:~/Documents$ gcc -fopenmp -mtune=cortex-a8 -mfpu=neon -o stream stream.c 
