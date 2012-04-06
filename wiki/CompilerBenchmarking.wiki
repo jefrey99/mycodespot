@@ -1,4 +1,4 @@
-# Page describing compiler benchmarking procedure and results.
+#Page describing compiler benchmarking procedure and results.
 
 == A quest to find the best compiler for ARM processors ==
 
@@ -9,4 +9,3 @@ This project is to try to get to the bottom of all of the bold claims by compile
  * GCC
  * ARM
  * Linaro
-
