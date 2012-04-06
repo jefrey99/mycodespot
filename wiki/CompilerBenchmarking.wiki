@@ -1,4 +1,4 @@
-#summary page describing compiler benchmarking procedure and results.
+#summary Page describing compiler benchmarking procedure and results.
 
 == A quest to find the best compiler for ARM processors ==
 
