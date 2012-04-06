@@ -1,3 +1,4 @@
+#summary ARM / Linux driver examples
 #page describing compiler benchmarking procedure and results.
 
 == A quest to find the best compiler for ARM processors ==
