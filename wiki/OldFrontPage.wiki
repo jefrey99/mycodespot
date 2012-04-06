@@ -1,4 +1,4 @@
-#old front page
+#summary old front page
 
 = My catch all for random information =
 
