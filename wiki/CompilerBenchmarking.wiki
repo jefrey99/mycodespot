@@ -1,0 +1,12 @@
+# Page describing compiler benchmarking procedure and results.
+
+== A quest to find the best compiler for ARM processors ==
+
+This project is to try to get to the bottom of all of the bold claims by compiler developers as to which compiler yeilds the best performance on an ARM Cortex-A9.
+
+====Compilers to evaluate===
+
+ * GCC
+ * ARM
+ * Linaro
+
