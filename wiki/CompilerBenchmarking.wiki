@@ -17,5 +17,6 @@ Compiling whetstone with Linaro
 $ export CROSS_COMPILE=arm-linux-gnueabihf-
 $ export PATH=/home/jeff/toolchains/linaro/gcc-linaro-arm-linux-gnueabihf-2012.05-20120523_linux/bin/:$PATH
 $ arm-linux-gnueabihf-gcc -o -mfpu=neon -mtune=cortex-a9 -o2 whetstone_arm whetstone.c -lm
+$ file whetstone_arm
 
 }}}
