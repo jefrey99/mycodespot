@@ -9,3 +9,15 @@ This project is to try to get to the bottom of all of the bold claims by compile
  * GCC
  * ARM
  * Linaro
+
+
+Compiling whetstone with Linaro
+{{{
+
+$ export CROSS_COMPILE=arm-linux-gnueabihf-
+
+$ export PATH=/home/jeff/toolchains/linaro/gcc-linaro-arm-linux-gnueabihf-2012.05-20120523_linux/bin/:$PATH
+
+$ arm-linux-gnueabihf-gcc -o whetstone_arm whetstone.c -lm
+
+}}}
