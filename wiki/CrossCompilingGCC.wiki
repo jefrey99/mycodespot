@@ -10,3 +10,6 @@ Quick guide to cross compile source code for ARM
 
   # Download toolchain from mentor
   # Open terminal (This assumes linux)
+  # Install 32 bit libraries if needed
+
+{{{sudo apt-get install ia32-libs}}}
