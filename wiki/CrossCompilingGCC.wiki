@@ -8,5 +8,5 @@ Quick guide to cross compile source code for ARM
 = Details =
 
 
-# Download toolchain from mentor
-# Open terminal (This assumes linux)
+  # Download toolchain from mentor
+  # Open terminal (This assumes linux)
