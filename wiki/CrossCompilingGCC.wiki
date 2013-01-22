@@ -11,7 +11,17 @@ Quick guide to cross compile source code for ARM
   # Download toolchain from mentor
   # Open terminal (This assumes linux)
   # Install 32 bit libraries if needed
-
 {{{
 $ sudo apt-get install ia32-libs
+}}}
+  # Install Sourcery Code bench
+{{{
+$ sudo dpkg-reconfigure -plow dash
+$ ./sourceryg++-2012.03-47-arm-none-linux-gnueabi.bin
+}}}
+
+  # Set up environment variables and add tools to the Linux host path
+{{{
+$ export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
+$ export PATH=<path>/CodeSourcery/2011.09/lin/Sourcery_CodeBench_Lite/bin:$PATH
 }}}
