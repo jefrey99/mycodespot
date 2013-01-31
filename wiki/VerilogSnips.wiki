@@ -49,6 +49,35 @@ endmodule
 // end of Verilog code
 }}}
 
+16 Bit Ripple Carry Adder
+{{{
+// Verilog code for 16 Bit Ripple Carry Adder
+module sixteen_bit_ripplecarry_adder (input A0,B0,A1,B1,A2,B2,A3,B3,A4,B4,A5,B5,A6,B6,A7,B7,A8,B8,A9,B9,A10,B10,A11,B11,A12,B12,A13,B13,A14,B14,A15,B15,Cin, 
+output S0,S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11,S12,S13,S14,S15,Cout);
+
+wire C1, C2, C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15;
+
+fulladder fa1(.A(A0),.B(B0),.Cin(Cin),.S(S0),.Cout(C1));
+fulladder fa2(.A(A1),.B(B1),.Cin(C1),.S(S1),.Cout(C2));
+fulladder fa3(.A(A2),.B(B2),.Cin(C2),.S(S2),.Cout(C3));
+fulladder fa4(.A(A3),.B(B3),.Cin(C3),.S(S3),.Cout(C4));
+fulladder fa5(.A(A4),.B(B4),.Cin(C4),.S(S4),.Cout(C5));
+fulladder fa6(.A(A5),.B(B5),.Cin(C5),.S(S5),.Cout(C6));
+fulladder fa7(.A(A6),.B(B6),.Cin(C6),.S(S6),.Cout(C7));
+fulladder fa8(.A(A7),.B(B7),.Cin(C7),.S(S7),.Cout(C8));
+fulladder fa9(.A(A8),.B(B8),.Cin(C8),.S(S8),.Cout(C9));
+fulladder fa10(.A(A9),.B(B9),.Cin(C9),.S(S9),.Cout(C10));
+fulladder fa11(.A(A10),.B(B10),.Cin(C10),.S(S10),.Cout(C11));
+fulladder fa12(.A(A11),.B(B11),.Cin(C11),.S(S11),.Cout(C12));
+fulladder fa13(.A(A12),.B(B12),.Cin(C12),.S(S12),.Cout(C13));
+fulladder fa14(.A(A13),.B(B13),.Cin(C13),.S(S13),.Cout(C14));
+fulladder fa15(.A(A14),.B(B14),.Cin(C14),.S(S14),.Cout(C15));
+fulladder fa16(.A(A15),.B(B15),.Cin(C15),.S(S15),.Cout(Cout));
+
+endmodule
+// end of Verilog code
+}}}
+
 Test Benches
 
 Build command 
