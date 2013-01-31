@@ -39,6 +39,14 @@ endmodule
 }}}
 Full Adder
 {{{
+// Verilog code for Half Adder
+module fulladder (input A, B,Cin, output S, Cout);
+wire C1, C2, S1;
+halfadder halfadder1(.A(A),.B(B),.S(S1),.C(C1));
+halfadder halfadder2(.A(S1),.B(Cin),.S(S),.C(C2));
+OR orgate(.A(C1),.B(C2),.F(Cout));
+endmodule
+// end of Verilog code
 }}}
 
 Test Benches
