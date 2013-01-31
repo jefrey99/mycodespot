@@ -48,7 +48,21 @@ OR orgate(.A(C1),.B(C2),.F(Cout));
 endmodule
 // end of Verilog code
 }}}
+4 Bit Ripple Carry Adder
+{{{
+// Verilog code for 4 Bit Ripple Carry Adder
+module four_bit_ripplecarry_adder (input A0,B0,A1,B1,A2,B2,A3,B3,Cin, output S0,S1,S2,S3,Cout);
 
+wire C1, C2, C3;
+
+fulladder fa1(.A(A0),.B(B0),.Cin(Cin),.S(S0),.Cout(C1));
+fulladder fa2(.A(A1),.B(B1),.Cin(C1),.S(S1),.Cout(C2));
+fulladder fa3(.A(A2),.B(B2),.Cin(C2),.S(S2),.Cout(C3));
+fulladder fa4(.A(A3),.B(B3),.Cin(C3),.S(S3),.Cout(Cout));
+
+endmodule
+// end of Verilog code
+}}}
 16 Bit Ripple Carry Adder
 {{{
 // Verilog code for 16 Bit Ripple Carry Adder
