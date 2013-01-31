@@ -40,3 +40,10 @@ endmodule
 Full Adder
 {{{
 }}}
+
+Test Benches
+
+Build command 
+{{{
+vcs -full64 -sverilog -f files -gui -debug
+}}}
