@@ -1,7 +1,7 @@
 #summary Simple logic in verilog
 
 == Simple logic in Verilog ==
-
+<g:plusone size="medium"></g:plusone>
 OR gate
 
 {{{
