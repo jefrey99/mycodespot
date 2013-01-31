@@ -20,3 +20,23 @@ module AND (input A, B, output F);
 endmodule
 // end of Verilog code
 }}}
+XOR gate
+{{{
+// Verilog code for XOR gate
+module XOR (input A, B, output F);
+  assign F = ((A & ~B) | (~A & B));
+endmodule
+// end of Verilog code
+}}}
+Half Adder
+{{{
+// Verilog code for Half Adder
+module halfadder (input A, B, output S, C);
+XOR xor_ha(.A(A),.B(B),.F(S));
+AND and_ha(.A(A),.B(B),.F(C));
+endmodule
+// end of Verilog code
+}}}
+Full Adder
+{{{
+}}}
