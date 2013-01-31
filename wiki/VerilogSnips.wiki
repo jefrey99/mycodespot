@@ -1,0 +1,22 @@
+#summary Simple logic in verilog
+
+== Simple logic in Verilog ==
+
+OR gate
+
+{{{
+// Verilog code for OR gate
+module OR (input A, B, output F);
+  assign F = (A | B);
+endmodule
+// end of Verilog code
+}}}
+
+AND gate
+{{{
+// Verilog code for AND gate
+module AND (input A, B, output F);
+  assign F = (A & B);
+endmodule
+// end of Verilog code
+}}}
