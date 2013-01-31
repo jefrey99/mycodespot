@@ -98,3 +98,5 @@ Build command
 {{{
 vcs -full64 -sverilog -f files -gui -debug
 }}}
+
+<g:plusone size="medium"></g:plusone>
