@@ -1,9 +1,10 @@
 #summary Simple logic in verilog
 
-== Simple logic in Verilog ==
+== Simple logic and verification test benches in Verilog ==
 <g:plusone size="medium"></g:plusone>
 OR gate
-
+===Logic blocks and units ===
+====OR gate====
 {{{
 // Verilog code for OR gate
 module OR (input A, B, output F);
@@ -11,8 +12,7 @@ module OR (input A, B, output F);
 endmodule
 // end of Verilog code
 }}}
-
-AND gate
+====AND gate====
 {{{
 // Verilog code for AND gate
 module AND (input A, B, output F);
@@ -20,7 +20,7 @@ module AND (input A, B, output F);
 endmodule
 // end of Verilog code
 }}}
-XOR gate
+====XOR gate====
 {{{
 // Verilog code for XOR gate
 module XOR (input A, B, output F);
@@ -28,7 +28,7 @@ module XOR (input A, B, output F);
 endmodule
 // end of Verilog code
 }}}
-Half Adder
+====Half Adder====
 {{{
 // Verilog code for Half Adder
 module halfadder (input A, B, output S, C);
@@ -37,7 +37,7 @@ AND and_ha(.A(A),.B(B),.F(C));
 endmodule
 // end of Verilog code
 }}}
-Full Adder
+====Full Adder====
 {{{
 // Verilog code for Half Adder
 module fulladder (input A, B,Cin, output S, Cout);
@@ -48,7 +48,7 @@ OR orgate(.A(C1),.B(C2),.F(Cout));
 endmodule
 // end of Verilog code
 }}}
-4 Bit Add Subtract Unit
+====4 Bit Add Subtract Unit====
 {{{
 // Verilog code for 4 Bit Subtract / Adder
 module four_bit_subtract_adder (input [3:0]A, [3:0]B, input Cin,OP, output [3:0]S,output Cout);
@@ -75,7 +75,7 @@ endmodule
 endmodule
 // end of Verilog code
 }}}
-32 Bit ADD/Subtract Math Co-processor
+====32 Bit ADD/Subtract Math Co-processor====
 {{{
 // Verilog code for 32 Bit Add/Subtract Co-Processor
 
@@ -158,8 +158,8 @@ endmodule
 
 }}}
 
-Test Benches
-XOR gate TB
+===Test Benches===
+====XOR gate TB====
 {{{
 // xor tb
 module xor_tb;
@@ -184,7 +184,7 @@ B=1;
 end 
 endmodule 
 }}}
-AND TB
+====AND TB====
 {{{
 // and tb
 module and_tb;
@@ -209,7 +209,7 @@ B=1;
 end 
 endmodule 
 }}}
-Half Adder TB
+====Half Adder TB====
 {{{
 // Half Adder tb
 module halfadder_tb;
@@ -234,7 +234,7 @@ B=1;
 end 
 endmodule 
 }}}
-Full Adder
+====Full Adder====
 {{{
 // Full Adder tb
 module fulladder_tb;
@@ -262,7 +262,7 @@ end
 endmodule 
 }}}
 
-4 Bit Subtract / Adder TB
+====4 Bit Subtract / Adder TB====
 {{{
 // 4 bit math co-processor tb
 
@@ -296,7 +296,7 @@ end
 end 
 endmodule 
 }}}
-32 bit Add/Subtract co-processor
+====32 bit Add/Subtract co-processor====
 {{{
 // 32 bit math co-processor tb
 module add_sub32_tb;
@@ -324,7 +324,7 @@ end
 endmodule 
 }}}
 
-Build command 
+===Build command ===
 {{{
 vcs -full64 -sverilog -f files -gui -debug
 }}}
