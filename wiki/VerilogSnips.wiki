@@ -2,8 +2,6 @@
 <g:plusone size="medium"></g:plusone>
 == Simple logic and verification test benches in Verilog ==
 <wiki:toc max_depth="5" />
-
-OR gate
 ===Logic blocks and units ===
 ====OR gate====
 {{{
