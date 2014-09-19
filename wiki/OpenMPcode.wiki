@@ -1,5 +1,5 @@
 #summary A few parallel code examples using OpenMP.
-= My OpenMP Code Snippets =
+= OpenMP Code Snippets - Stolen from T. Sterling =
 
 === In case you forgot the GCC compile commands ==
 
